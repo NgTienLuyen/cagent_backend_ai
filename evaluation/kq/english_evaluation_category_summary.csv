@@ -1,0 +1,6 @@
+﻿Category,Category Average,Metrics Count,Best Metric,Best Score
+Core Quality,0.6695,4,faithfulness_score,0.93
+Retrieval,0.8328,4,ndcg,1.2022
+Text Quality,0.0293,4,rouge-1,0.0544
+Semantic,0.3867,1,semantic_similarity,0.3867
+Overall,0.6396,1,overall_score,0.6396

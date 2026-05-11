@@ -1,0 +1,1884 @@
+[
+  {
+    "question": "WHO NORMALLY DELIVERS THE OPENING PROLOGUE IN THE PLAY?",
+    "ground_truth_answer": "THE ACTOR WEARING THE BLACK CLOAK",
+    "relevant_contexts": [
+      "The play begins with three pages disputing over the black cloak usually worn by the actor who delivers the prologue."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "WHAT NAME WAS CYNTHIA MORE FAMOUSLY KNOWN BY?",
+    "ground_truth_answer": "THE GODDESS DIANA",
+    "relevant_contexts": [
+      "In the play proper, the goddess Diana, also called Cynthia, has ordained a \"solemn revels\" in the valley of Gargaphie in Greece.",
+      "The goddess Diana, also called Cynthia, represents Queen Elizabeth in the play."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "WHO DOES ECHO WEEP FOR?",
+    "ground_truth_answer": "NARCISSUS",
+    "relevant_contexts": [
+      "Mercury has awakened Echo, who weeps for Narcissus.",
+      "Echo weeps for Narcissus, and states that a drink from Narcissus's spring causes the drinkers to \"Grow dotingly enamored of themselves.\""
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "WHAT DOES A DRINK FROM NARCISSUS'S SPRING CAUSE THE DRINKER TO DO?",
+    "ground_truth_answer": "FALL IN LOVE WITH THEMSELVES",
+    "relevant_contexts": [
+      "A drink from Narcissus's spring causes the drinkers to \"Grow dotingly enamored of themselves.\"",
+      "The courtiers and ladies assembled for the Cynthia's revels all drink from the spring."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "IN WHAT VALLEY DID THE SOLEMN REVELS OF CYNTHIA TAKE PLACE?",
+    "ground_truth_answer": "GARGAPHIE IN GREECE",
+    "relevant_contexts": [
+      "The goddess Diana, also called Cynthia, has ordained a \"solemn revels\" in the valley of Gargaphie in Greece.",
+      "The valley of Gargaphie in Greece is where the solemn revels take place."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "WHAT DID THE  SYMBOLIC VICES DISGUISE THEMSELVES TO BE?",
+    "ground_truth_answer": "VIRTUES",
+    "relevant_contexts": [
+      "Cynthia has the dancers unmask and shows that vices have masqueraded as virtues.",
+      "The symbolic vices disguised themselves as virtues during the masques."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "WHAT SENTENCE DID CYNTHIA GIVE TO THE SYMBOLIC VICES?",
+    "ground_truth_answer": "TO BATHE IN THE SPRING OF HELICON",
+    "relevant_contexts": [
+      "She sentences them to make reparation and to purify themselves by bathing in the spring at Mount Helicon.",
+      "Cynthia sentenced the vices to bathe in the spring at Mount Helicon for purification."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "WHO DRANK FROM THE SPRING AT CYNTHIA'S REVELS?",
+    "ground_truth_answer": "ALL THE COURTIERS AND LADIES WHO ATTENDED CYNTHIA'S REVELS",
+    "relevant_contexts": [
+      "The courtiers and ladies assembled for the Cynthia's revels all drink from the spring.",
+      "All the courtiers and ladies who attended Cynthia's revels drank from Narcissus's spring."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "HOW MANY PHASES DID THE COURT COMPLIMENT COMPETITION HAVE?",
+    "ground_truth_answer": "4 PHASES",
+    "relevant_contexts": [
+      "The competition is held, in four phases, and the courtiers are beaten.",
+      "Asotus challenges all comers to a competition of \"court compliment\" which is held in four phases."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "WHO CHALLENGES THE COURTIERS TO COURT COMPLIMENT COMPETITION?",
+    "ground_truth_answer": "ASOTUS",
+    "relevant_contexts": [
+      "Asotus, a foolish spendthrift who longs to become a courtier and a master of fashion and manners, also drinks from the spring.",
+      "Emboldened by vanity and self-love, he challenges all comers to a competition of \"court compliment.\""
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "How many phases does the competition have?",
+    "ground_truth_answer": "Four.",
+    "relevant_contexts": [
+      "Asotus, a foolish spendthrift who longs to become a courtier and a master of fashion and manners, also drinks from the spring; emboldened by vanity and self-love, he challenges all comers to a competition of \"court compliment.\" The competition is held, in four phases, and the courtiers are beaten.",
+      "The play begins with three pages disputing over the black cloak usually worn by the actor who delivers the prologue."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "Who does Diana represent?",
+    "ground_truth_answer": "Queen Elizabeth.",
+    "relevant_contexts": [
+      "At their conclusion, Cynthia (representing Queen Elizabeth) has the dancers unmask and shows that vices have masqueraded as virtues.",
+      "The figure of Actaeon in the play may represent Robert Devereux, 2nd Earl of Essex, while Cynthia's lady in waiting Arete may be Lucy, Countess of Bedford, one of Elizabeth's ladies in waiting as well as Jonson's patroness.",
+      "The play begins with three pages disputing over the black cloak usually worn by the actor who delivers the prologue."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "Who is sleeping at the beginning of the play?",
+    "ground_truth_answer": "Echo",
+    "relevant_contexts": [
+      "Mercury has awakened Echo, who weeps for Narcissus, and states that a drink from Narcissus's spring causes the drinkers to \"Grow dotingly enamored of themselves.\" The courtiers and ladies assembled for the Cynthia's revels all drink from the spring.",
+      "The play begins with three pages disputing over the black cloak usually worn by the actor who delivers the prologue.",
+      "In the play proper, the goddess Diana, also called Cynthia, has ordained a \"solemn revels\" in the valley of Gargaphie in Greece."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "Where is Narcissus's spring?",
+    "ground_truth_answer": "Gargaphie Valley Greece.",
+    "relevant_contexts": [
+      "In the play proper, the goddess Diana, also called Cynthia, has ordained a \"solemn revels\" in the valley of Gargaphie in Greece.",
+      "She sentences them to make reparation and to purify themselves by bathing in the spring at Mount Helicon.",
+      "Mercury has awakened Echo, who weeps for Narcissus, and states that a drink from Narcissus's spring causes the drinkers to \"Grow dotingly enamored of themselves.\" The courtiers and ladies assembled for the Cynthia's revels all drink from the spring."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "Which two societies are aligned in this play?",
+    "ground_truth_answer": "Greek mythology and Queen Elizabeth's Court",
+    "relevant_contexts": [
+      "At their conclusion, Cynthia (representing Queen Elizabeth) has the dancers unmask and shows that vices have masqueraded as virtues.",
+      "The figure of Actaeon in the play may represent Robert Devereux, 2nd Earl of Essex, while Cynthia's lady in waiting Arete may be Lucy, Countess of Bedford, one of Elizabeth's ladies in waiting as well as Jonson's patroness.",
+      "Two symbolic masques are performed within the play for the assembled revelers."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "Where do the dancers purify themselves?",
+    "ground_truth_answer": "Mount Helicon",
+    "relevant_contexts": [
+      "She sentences them to make reparation and to purify themselves by bathing in the spring at Mount Helicon.",
+      "At their conclusion, Cynthia (representing Queen Elizabeth) has the dancers unmask and shows that vices have masqueraded as virtues."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "Which page performs the dialogue?",
+    "ground_truth_answer": "Anaides",
+    "relevant_contexts": [
+      "They draw lots for the cloak, and one of the losers, Anaides, starts telling the audience what happens in the play to come; the others try to suppress him, interrupting him and putting their hands over his mouth.",
+      "The play is notably rich in music, as is typical for the theatre of the boys' companies, which originated as church choirs."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "Who enters with Mercury?",
+    "ground_truth_answer": "Cupid",
+    "relevant_contexts": [
+      "The gods Cupid and Mercury appear, and they too start to argue."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "Who is the 2nd Earl of Essex?",
+    "ground_truth_answer": "Robert Devereux",
+    "relevant_contexts": [
+      "The figure of Actaeon in the play may represent Robert Devereux, 2nd Earl of Essex."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "From where does this play originate? ",
+    "ground_truth_answer": "Church choir",
+    "relevant_contexts": [
+      "The play is notably rich in music, as is typical for the theatre of the boys' companies, which originated as church choirs."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "What are people arguing about as the story begins?",
+    "ground_truth_answer": "A black cloak ",
+    "relevant_contexts": [
+      "The play begins with three pages disputing over the black cloak usually worn by the actor who delivers the prologue."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "Who announces the events that are to come to the dismay of the others on stage?",
+    "ground_truth_answer": "Anaides",
+    "relevant_contexts": [
+      "They draw lots for the cloak, and one of the losers, Anaides, starts telling the audience what happens in the play to come; the others try to suppress him, interrupting him and putting their hands over his mouth."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "What is another name for the Goddess Diana?",
+    "ground_truth_answer": "Cynthia",
+    "relevant_contexts": [
+      "The goddess Diana, also called Cynthia, has ordained a \"solemn revels\" in the valley of Gargaphie in Greece."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "What does Diana order to take place  in the valley of Gargaphie?",
+    "ground_truth_answer": "Solemn revels",
+    "relevant_contexts": [
+      "The goddess Diana, also called Cynthia, has ordained a \"solemn revels\" in the valley of Gargaphie in Greece."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "Why does Asotus become emboldened by vanity and self -love?",
+    "ground_truth_answer": "He drank from Narcissus' spring ",
+    "relevant_contexts": [
+      "Mercury has awakened Echo, who weeps for Narcissus, and states that a drink from Narcissus's spring causes the drinkers to \"Grow dotingly enamored of themselves.\" Asotus, a foolish spendthrift who longs to become a courtier and a master of fashion and manners, also drinks from the spring; emboldened by vanity and self-love."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "What challenge does Asotus propose to all comers?",
+    "ground_truth_answer": "\"Court Compliment\"",
+    "relevant_contexts": [
+      "Asotus, a foolish spendthrift who longs to become a courtier and a master of fashion and manners, also drinks from the spring; emboldened by vanity and self-love, he challenges all comers to a competition of \"court compliment.\""
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "What does Diana tell the courtiers to do after the dance?",
+    "ground_truth_answer": "Purify themselves by bathing in a sacred spring",
+    "relevant_contexts": [
+      "She sentences them to make reparation and to purify themselves by bathing in the spring at Mount Helicon.",
+      "At their conclusion, Cynthia (representing Queen Elizabeth) has the dancers unmask and shows that vices have masqueraded as virtues."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "What effect does the spring of Narcissus have on those who drink from it?",
+    "ground_truth_answer": "Grow enamored of themselves",
+    "relevant_contexts": [
+      "Mercury has awakened Echo, who weeps for Narcissus, and states that a drink from Narcissus's spring causes the drinkers to \"Grow dotingly enamored of themselves.\""
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "Who awakens Echo?",
+    "ground_truth_answer": "Mercury",
+    "relevant_contexts": [
+      "Mercury has awakened Echo, who weeps for Narcissus."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "Who does Cynthia represent in the masque?",
+    "ground_truth_answer": "Queen Elizabeth",
+    "relevant_contexts": [
+      "At their conclusion, Cynthia (representing Queen Elizabeth) has the dancers unmask and shows that vices have masqueraded as virtues."
+    ],
+    "relevant_chunk_ids": [
+      "1d3721ea-ec71-4680-9f42-5ee8c75edfa9"
+    ],
+    "source_document_id": "00fb61fa7bee266ad995e52190ebb73606b60b70"
+  },
+  {
+    "question": "Why did Micky feel he lost the fight in Atlantic City?",
+    "ground_truth_answer": "Opponent was in a weight class of 20 pounds heavier.",
+    "relevant_contexts": [
+      "On the night of an undercard fight in Atlantic City, Micky's scheduled opponent is ill, and a substitute is found who is 20 pounds heavier than Micky, a huge difference in professional boxing, constituting two or three weight classes.",
+      "During a prison visit, Dicky advises Micky on how best to work his opponent, but Micky feels his brother is being selfish and trying to restart his own failed career.",
+      "During the actual match, Micky is nearly overwhelmed, but then implements his brother's advice and triumphs; he earns the title shot for which his opponent was being groomed."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "What injury does Micky receive as he attempted to help his step-brother in a fight with police?",
+    "ground_truth_answer": "Broken hand",
+    "relevant_contexts": [
+      "Micky tries to stop the police from beating his brother and a police officer brutally breaks his hand before arresting him.",
+      "Despite Micky's reservations, his mother and brother agree so that they can all get the purse and Micky is defeated.",
+      "The other members of his training team and a new manager, Sal Lanano, persuade Micky to return to boxing with the explicit understanding that his mother and brother will no longer be involved."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "What does Dicky's family realize to be the destroyer in Dicky's life and career after seeing a documentary on HBO?",
+    "ground_truth_answer": "Crack",
+    "relevant_contexts": [
+      "On the night of the HBO documentary's airing, Dicky's family, and Dicky himself in prison, are horrified to see it is called Crack in America how crack addiction ruined Dicky's career and life.",
+      "Dicky returns to his crack house, where he says goodbye to his friends and heads to Charlene's apartment.",
+      "Micky mentions he received an offer to be paid to train in Las Vegas, but Dicky says he will match the offer so he can keep training and working with his family."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "Who is the manager that gets Micky away from his family of bad influence and encourages him back into the ring?",
+    "ground_truth_answer": "Sal Lanano",
+    "relevant_contexts": [
+      "The other members of his training team and a new manager, Sal Lanano, persuade Micky to return to boxing with the explicit understanding that his mother and brother will no longer be involved.",
+      "Micky is lured back into boxing by his father, who believes Alice and his stepson Dicky are bad influences.",
+      "Micky retreats from the world and forms a relationship with Charlene Fleming, a former college athlete who dropped out and became a bartender."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "During his series of fights to regain his career, whose advice does Micky follow to gain momentum against his opponent?",
+    "ground_truth_answer": "his brother, Dicky",
+    "relevant_contexts": [
+      "During a prison visit, Dicky advises Micky on how best to work his opponent, but Micky feels his brother is being selfish and trying to restart his own failed career.",
+      "Assuming things are as they were, Dicky prepares to spar with his brother, but Micky informs him that he's no longer allowed per Micky's agreement with his current team.",
+      "The film jumps a few years ahead, with Dicky crediting his brother as the creator of his own success."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "Which member of Micky's family realize that other members of the family are bad influences?",
+    "ground_truth_answer": "Micky's father",
+    "relevant_contexts": [
+      "Micky is lured back into boxing by his father, who believes Alice and his stepson Dicky are bad influences.",
+      "The other members of his training team and a new manager, Sal Lanano, persuade Micky to return to boxing with the explicit understanding that his mother and brother will no longer be involved.",
+      "In the ensuing argument, in which Micky chastises both factions of his family, Charlene and his trainer leave in disgust."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "Who does Dicky seek out to work with in reuniting the family?",
+    "ground_truth_answer": "Charlene",
+    "relevant_contexts": [
+      "Micky retreats from the world and forms a relationship with Charlene Fleming, a former college athlete who dropped out and became a bartender.",
+      "In the ensuing argument, in which Micky chastises both factions of his family, Charlene and his trainer leave in disgust.",
+      "Dicky returns to his crack house, where he says goodbye to his friends and heads to Charlene's apartment."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "In what location does the group go for the final title fight?",
+    "ground_truth_answer": "London",
+    "relevant_contexts": [
+      "After bringing everyone back together, the group goes to London for the title fight.",
+      "After several weeks, Alice arranges another fight for Micky, concerned it will turn out the same.",
+      "This is foiled by the actual police and Dicky is arrested after a chase and a fight with them."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "What reward does Micky gain in the final victory?",
+    "ground_truth_answer": "The welterweight title",
+    "relevant_contexts": [
+      "Micky scores another upset victory and the welterweight title.",
+      "During the actual match, Micky is nearly overwhelmed, but then implements his brother's advice and triumphs; he earns the title shot for which his opponent was being groomed.",
+      "After bringing everyone back together, the group goes to London for the title fight."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "What is Charlene Fleming's current occupation?",
+    "ground_truth_answer": "A bartender",
+    "relevant_contexts": [
+      "Micky retreats from the world and forms a relationship with Charlene Fleming, a former college athlete who dropped out and became a bartender.",
+      "His mother and seven sisters blame Charlene for his lack of motivation.",
+      "Assuming things are as they were, Dicky prepares to spar with his brother, but Micky informs him that he's no longer allowed per Micky's agreement with his current team."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "How much heavier than Micky is Micky's opponent in Atlantic City?",
+    "ground_truth_answer": "Twenty pounds",
+    "relevant_contexts": [
+      "On the night of an undercard fight in Atlantic City, Micky's scheduled opponent is ill, and a substitute is found who is 20 pounds heavier than Micky, a huge difference in professional boxing, constituting two or three weight classes.",
+      "During a prison visit, Dicky advises Micky on how best to work his opponent, but Micky feels his brother is being selfish and trying to restart his own failed career.",
+      "During the actual match, Micky is nearly overwhelmed, but then implements his brother's advice and triumphs; he earns the title shot for which his opponent was being groomed."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "Why do Micky and his family agree to the fight in Atlantic City?",
+    "ground_truth_answer": "To win the purse",
+    "relevant_contexts": [
+      "Despite Micky's reservations, his mother and brother agree so that they can all get the purse and Micky is defeated.",
+      "Micky mentions he received an offer to be paid to train in Las Vegas, but Dicky says he will match the offer so he can keep training and working with his family.",
+      "In the ensuing argument, in which Micky chastises both factions of his family, Charlene and his trainer leave in disgust."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "What does Dicky have his girlfriend pose as?",
+    "ground_truth_answer": "A Prostitute",
+    "relevant_contexts": [
+      "Dicky then tries to get money by posing his girlfriend as a prostitute and then, once she picks up a client, impersonating a police officer to steal the client's money.",
+      "Micky mentions he received an offer to be paid to train in Las Vegas, but Dicky says he will match the offer so he can keep training and working with his family.",
+      "Dicky begins training and trying to get his life together in prison."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "Who does Micky accuse of favoring Dicky?",
+    "ground_truth_answer": "His mother",
+    "relevant_contexts": [
+      "His mother and seven sisters blame Charlene for his lack of motivation.",
+      "Upon his release from prison, Dicky and his mother go to see Micky train.",
+      "Despite Micky's reservations, his mother and brother agree so that they can all get the purse and Micky is defeated."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "Where does Micky's last fight occur?",
+    "ground_truth_answer": "London",
+    "relevant_contexts": [
+      "After bringing everyone back together, the group goes to London for the title fight.",
+      "After several weeks, Alice arranges another fight for Micky, concerned it will turn out the same.",
+      "Despite Micky's reservations, his mother and brother agree so that they can all get the purse and Micky is defeated."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "What happens to Dicky when he poses as a policeman?",
+    "ground_truth_answer": "He is arrested",
+    "relevant_contexts": [
+      "This is foiled by the actual police and Dicky is arrested after a chase and a fight with them.",
+      "He is then offered another major fight against an undefeated up-and-coming boxer.",
+      "He tells her that Micky needs both of them and they need to work together."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "What title does MIcky finally win?",
+    "ground_truth_answer": "Welterweight Champion",
+    "relevant_contexts": [
+      "Micky scores another upset victory and the welterweight title.",
+      "During the actual match, Micky is nearly overwhelmed, but then implements his brother's advice and triumphs; he earns the title shot for which his opponent was being groomed.",
+      "Despite Micky's reservations, his mother and brother agree so that they can all get the purse and Micky is defeated."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "Who suffers from a crack addiction?",
+    "ground_truth_answer": "Dicky",
+    "relevant_contexts": [
+      "On the night of the HBO documentary's airing, Dicky's family, and Dicky himself in prison, are horrified to see it is called Crack in America how crack addiction ruined Dicky's career and life.",
+      "Micky is lured back into boxing by his father, who believes Alice and his stepson Dicky are bad influences.",
+      "Upon his release from prison, Dicky and his mother go to see Micky train."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "What criminal crime did dickey commit that caused him to get arrested ?",
+    "ground_truth_answer": "Dickey had his girlfriend pose as a prostitute, then pretend to be a cop to extort money",
+    "relevant_contexts": [
+      "Dicky then tries to get money by posing his girlfriend as a prostitute and then, once she picks up a client, impersonating a police officer to steal the client's money.",
+      "During the actual match, Micky is nearly overwhelmed, but then implements his brother's advice and triumphs; he earns the title shot for which his opponent was being groomed.",
+      "Despite Micky's reservations, his mother and brother agree so that they can all get the purse and Micky is defeated."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "How did Mickey break his hand?",
+    "ground_truth_answer": "It was broken by the police officer that arrested him while he was trying to defend his brother from police ",
+    "relevant_contexts": [
+      "Micky tries to stop the police from beating his brother and a police officer brutally breaks his hand before arresting him.",
+      "During a prison visit, Dicky advises Micky on how best to work his opponent, but Micky feels his brother is being selfish and trying to restart his own failed career.",
+      "Dicky then tries to get money by posing his girlfriend as a prostitute and then, once she picks up a client, impersonating a police officer to steal the client's money."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "What did sal lanano convicence Mickey that he must do in order to return to boxing?",
+    "ground_truth_answer": "Cut all ties with his brother and mother and brother.",
+    "relevant_contexts": [
+      "The other members of his training team and a new manager, Sal Lanano, persuade Micky to return to boxing with the explicit understanding that his mother and brother will no longer be involved.",
+      "Despite Micky's reservations, his mother and brother agree so that they can all get the purse and Micky is defeated.",
+      "His mother and seven sisters blame Charlene for his lack of motivation."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "What was the title of the hbo documentary about dickey?",
+    "ground_truth_answer": "Crack in America how crack addiction ruined dicys career ",
+    "relevant_contexts": [
+      "On the night of the HBO documentary's airing, Dicky's family, and Dicky himself in prison, are horrified to see it is called Crack in America how crack addiction ruined Dicky's career and life.",
+      "During a prison visit, Dicky advises Micky on how best to work his opponent, but Micky feels his brother is being selfish and trying to restart his own failed career.",
+      "Dicky returns to his crack house, where he says goodbye to his friends and heads to Charlene's apartment."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "Why did Mickey have reservations about his fight in Atlantic City ?",
+    "ground_truth_answer": "Because the person he was supposed to fight was ill and the replacement fighter was 20 pounds heavier ",
+    "relevant_contexts": [
+      "On the night of an undercard fight in Atlantic City, Micky's scheduled opponent is ill, and a substitute is found who is 20 pounds heavier than Micky, a huge difference in professional boxing, constituting two or three weight classes.",
+      "After several weeks, Alice arranges another fight for Micky, concerned it will turn out the same.",
+      "This is foiled by the actual police and Dicky is arrested after a chase and a fight with them."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "Where was the final title fight ?",
+    "ground_truth_answer": "London",
+    "relevant_contexts": [
+      "After bringing everyone back together, the group goes to London for the title fight.",
+      "After several weeks, Alice arranges another fight for Micky, concerned it will turn out the same.",
+      "This is foiled by the actual police and Dicky is arrested after a chase and a fight with them."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "Who does Mickey credit for his victory in the end?",
+    "ground_truth_answer": "Dickey",
+    "relevant_contexts": [
+      "Micky is lured back into boxing by his father, who believes Alice and his stepson Dicky are bad influences.",
+      "Despite Micky's reservations, his mother and brother agree so that they can all get the purse and Micky is defeated.",
+      "Micky retreats from the world and forms a relationship with Charlene Fleming, a former college athlete who dropped out and became a bartender."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "Who wins the sparing match between Mickey and dickey?",
+    "ground_truth_answer": "Mickey",
+    "relevant_contexts": [
+      "Micky retreats from the world and forms a relationship with Charlene Fleming, a former college athlete who dropped out and became a bartender.",
+      "Micky mentions he received an offer to be paid to train in Las Vegas, but Dicky says he will match the offer so he can keep training and working with his family.",
+      "Micky is lured back into boxing by his father, who believes Alice and his stepson Dicky are bad influences."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "Who leads Mickey back to boxing after the hbo documentary is realeases?",
+    "ground_truth_answer": "His father",
+    "relevant_contexts": [
+      "Micky is lured back into boxing by his father, who believes Alice and his stepson Dicky are bad influences.",
+      "His mother and seven sisters blame Charlene for his lack of motivation.",
+      "The other members of his training team and a new manager, Sal Lanano, persuade Micky to return to boxing with the explicit understanding that his mother and brother will no longer be involved."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "What weight class does Mickey become champion of at the end of the story?",
+    "ground_truth_answer": "The welterweight title ",
+    "relevant_contexts": [
+      "Micky scores another upset victory and the welterweight title.",
+      "During the actual match, Micky is nearly overwhelmed, but then implements his brother's advice and triumphs; he earns the title shot for which his opponent was being groomed.",
+      "After bringing everyone back together, the group goes to London for the title fight."
+    ],
+    "relevant_chunk_ids": [
+      "0a1f90d9-f98f-440e-8972-a128f82576bb"
+    ],
+    "source_document_id": "01502137e4276712d118bd4bdaf481c89aed163b"
+  },
+  {
+    "question": "In the story, what does Nadia have that makes Alexei leave her in St. Albans?",
+    "ground_truth_answer": "A pregnancy.",
+    "relevant_contexts": [
+      "John Buckingham (Ben Chaplin), a lonely St Albans bank clerk, orders a mail-order bride Nadia (Nicole Kidman) from Russia on the Internet.",
+      "After a violent altercation, Alexei holds Nadia hostage and demands a ransom from John.",
+      "Nadia, Yuri, and Alexei are criminals, and Alexei is actually Nadia's boyfriend."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "In one sentence, please describe why John was forced to steal from his job as a bank clerk?",
+    "ground_truth_answer": "Because Nadia's cousin and friend held her for ransom money.",
+    "relevant_contexts": [
+      "After a violent altercation, Alexei holds Nadia hostage and demands a ransom from John.",
+      "John has grown to care for Nadia and is forced to steal from the bank where he has worked for ten years.",
+      "John Buckingham (Ben Chaplin), a lonely St Albans bank clerk, orders a mail-order bride Nadia (Nicole Kidman) from Russia on the Internet."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "Why did John want to take Nadia to the police after Yuri and Alexei left with the money?",
+    "ground_truth_answer": "Because John realized Nadia was a part of the con to have him steal money and he wanted to clear his name.",
+    "relevant_contexts": [
+      "John takes Nadia to turn her into the police - hoping to clear his name as a wanted bank robber.",
+      "John has grown to care for Nadia and is forced to steal from the bank where he has worked for ten years.",
+      "After a violent altercation, Alexei holds Nadia hostage and demands a ransom from John."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "Why did Yuri and Alexei leave Nadia behind?",
+    "ground_truth_answer": "They realized she was pregnant with Johns' baby.",
+    "relevant_contexts": [
+      "He eventually manages to free himself and quickly learns that Nadia has been left behind after Alexei discovered she was pregnant.",
+      "He leaves her at the airport, where she is kidnapped by Alexei â who now wants Nadia to have the baby.",
+      "Nadia, Yuri, and Alexei are criminals, and Alexei is actually Nadia's boyfriend."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "What country did Nadia's cousin and friend visit her from?",
+    "ground_truth_answer": "Russia",
+    "relevant_contexts": [
+      "John Buckingham (Ben Chaplin), a lonely St Albans bank clerk, orders a mail-order bride Nadia (Nicole Kidman) from Russia on the Internet.",
+      "John, disguised as Alexei, leaves for Russia with Sophia.",
+      "Though Nadia cannot speak English and John cannot speak Russian, they soon bond."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "Who is Sophia?",
+    "ground_truth_answer": "Sophia is Nadia's real name.",
+    "relevant_contexts": [
+      "Nadia informs John that her real name is Sophia.",
+      "John gets dressed and subsequently gets into a scrap with Nadia, who later reveals that she can indeed speak English and that her name is not Nadia.",
+      "John takes Nadia to turn her into the police - hoping to clear his name as a wanted bank robber."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "What did John learn about Nadia, Yuri and Alexei?",
+    "ground_truth_answer": "They have been scamming men in Switzerland and Germany in the same manner they did with John.",
+    "relevant_contexts": [
+      "John learns that the trio have carried out the same scam on men from Switzerland and Germany, among others.",
+      "After a violent altercation, Alexei holds Nadia hostage and demands a ransom from John.",
+      "John Buckingham (Ben Chaplin), a lonely St Albans bank clerk, orders a mail-order bride Nadia (Nicole Kidman) from Russia on the Internet."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "Why did Alexei kidnap Nadia from the airport?",
+    "ground_truth_answer": "He wanted for her to have her baby with him after all.",
+    "relevant_contexts": [
+      "He eventually manages to free himself and quickly learns that Nadia has been left behind after Alexei discovered she was pregnant.",
+      "He leaves her at the airport, where she is kidnapped by Alexei â who now wants Nadia to have the baby.",
+      "After a violent altercation, Alexei holds Nadia hostage and demands a ransom from John."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "Where did John and Sophia go to from the Airport?",
+    "ground_truth_answer": "To Russia",
+    "relevant_contexts": [
+      "John Buckingham (Ben Chaplin), a lonely St Albans bank clerk, orders a mail-order bride Nadia (Nicole Kidman) from Russia on the Internet.",
+      "John, disguised as Alexei, leaves for Russia with Sophia.",
+      "Though Nadia cannot speak English and John cannot speak Russian, they soon bond."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "Why did Sophia go to Russia with Alexei, instead of John?",
+    "ground_truth_answer": "She did go with John, but John had changed his name to Alexei since John was wanted for Robbery.",
+    "relevant_contexts": [
+      "John, disguised as Alexei, leaves for Russia with Sophia.",
+      "John takes Nadia to turn her into the police - hoping to clear his name as a wanted bank robber.",
+      "After a violent altercation, Alexei holds Nadia hostage and demands a ransom from John."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "What is John's job?",
+    "ground_truth_answer": "Bank clerk",
+    "relevant_contexts": [
+      "John Buckingham (Ben Chaplin), a lonely St Albans bank clerk, orders a mail-order bride Nadia (Nicole Kidman) from Russia on the Internet.",
+      "John has grown to care for Nadia and is forced to steal from the bank where he has worked for ten years.",
+      "John takes Nadia to turn her into the police - hoping to clear his name as a wanted bank robber."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "How does John get the money needed to pay the ransom for Nadia?",
+    "ground_truth_answer": "Robs his own bank",
+    "relevant_contexts": [
+      "John takes Nadia to turn her into the police - hoping to clear his name as a wanted bank robber.",
+      "John Buckingham (Ben Chaplin), a lonely St Albans bank clerk, orders a mail-order bride Nadia (Nicole Kidman) from Russia on the Internet.",
+      "John has grown to care for Nadia and is forced to steal from the bank where he has worked for ten years."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "Why does Alexei leave Nadia behind?",
+    "ground_truth_answer": "Because she was pregnant",
+    "relevant_contexts": [
+      "He eventually manages to free himself and quickly learns that Nadia has been left behind after Alexei discovered she was pregnant.",
+      "After a violent altercation, Alexei holds Nadia hostage and demands a ransom from John.",
+      "Nadia, Yuri, and Alexei are criminals, and Alexei is actually Nadia's boyfriend."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "What was John tied to in the motel?",
+    "ground_truth_answer": "A toilet",
+    "relevant_contexts": [
+      "They take him prisoner, strip him down to his underpants, and tie him to a toilet in a motel.",
+      "John Buckingham (Ben Chaplin), a lonely St Albans bank clerk, orders a mail-order bride Nadia (Nicole Kidman) from Russia on the Internet.",
+      "John is uncomfortable and shy, but Nadia is sexually bold."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "Why does John take Nadia to turn her into the police?",
+    "ground_truth_answer": "He hopes to clear his name as a wanted bank robber",
+    "relevant_contexts": [
+      "John takes Nadia to turn her into the police - hoping to clear his name as a wanted bank robber.",
+      "He eventually manages to free himself and quickly learns that Nadia has been left behind after Alexei discovered she was pregnant.",
+      "He leaves her at the airport, where she is kidnapped by Alexei â who now wants Nadia to have the baby."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "Where does John leave Nadia after deciding against turning her into the police?",
+    "ground_truth_answer": "The Airport",
+    "relevant_contexts": [
+      "He leaves her at the airport, where she is kidnapped by Alexei â who now wants Nadia to have the baby.",
+      "John takes Nadia to turn her into the police - hoping to clear his name as a wanted bank robber.",
+      "After a violent altercation, Alexei holds Nadia hostage and demands a ransom from John."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "Why is Nadia kidnapped by Alexei?",
+    "ground_truth_answer": "Because he now wants her to have the baby",
+    "relevant_contexts": [
+      "He leaves her at the airport, where she is kidnapped by Alexei â who now wants Nadia to have the baby.",
+      "After a violent altercation, Alexei holds Nadia hostage and demands a ransom from John.",
+      "Nadia, Yuri, and Alexei are criminals, and Alexei is actually Nadia's boyfriend."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "What is Nadia's real name?",
+    "ground_truth_answer": "Sophia",
+    "relevant_contexts": [
+      "Nadia informs John that her real name is Sophia.",
+      "John, disguised as Alexei, leaves for Russia with Sophia.",
+      "John gets dressed and subsequently gets into a scrap with Nadia, who later reveals that she can indeed speak English and that her name is not Nadia."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "Who is John disguised as when he leaves with Sophia to Russia?",
+    "ground_truth_answer": "Alexei",
+    "relevant_contexts": [
+      "John, disguised as Alexei, leaves for Russia with Sophia.",
+      "He leaves her at the airport, where she is kidnapped by Alexei â who now wants Nadia to have the baby.",
+      "After a violent altercation, Alexei holds Nadia hostage and demands a ransom from John."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "What does John tie Alexei to?",
+    "ground_truth_answer": "A chair",
+    "relevant_contexts": [
+      "John rescues her, tying Alexei to a chair.",
+      "After a violent altercation, Alexei holds Nadia hostage and demands a ransom from John.",
+      "John, disguised as Alexei, leaves for Russia with Sophia."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "What is John Buckingham's job?",
+    "ground_truth_answer": "Bank clerk",
+    "relevant_contexts": [
+      "John Buckingham (Ben Chaplin), a lonely St Albans bank clerk, orders a mail-order bride Nadia (Nicole Kidman) from Russia on the Internet.",
+      "John has grown to care for Nadia and is forced to steal from the bank where he has worked for ten years.",
+      "John takes Nadia to turn her into the police - hoping to clear his name as a wanted bank robber."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "In what city does Buckingham work?",
+    "ground_truth_answer": "St. Albans",
+    "relevant_contexts": [
+      "John Buckingham (Ben Chaplin), a lonely St Albans bank clerk, orders a mail-order bride Nadia (Nicole Kidman) from Russia on the Internet.",
+      "John is uncomfortable and shy, but Nadia is sexually bold."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "What does Buckingham order on the internet?",
+    "ground_truth_answer": "a mail-order bride",
+    "relevant_contexts": [
+      "John Buckingham (Ben Chaplin), a lonely St Albans bank clerk, orders a mail-order bride Nadia (Nicole Kidman) from Russia on the Internet.",
+      "John is uncomfortable and shy, but Nadia is sexually bold."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "What is the mail-order bride's name?",
+    "ground_truth_answer": "Nadia",
+    "relevant_contexts": [
+      "John Buckingham (Ben Chaplin), a lonely St Albans bank clerk, orders a mail-order bride Nadia (Nicole Kidman) from Russia on the Internet.",
+      "John gets dressed and subsequently gets into a scrap with Nadia, who later reveals that she can indeed speak English and that her name is not Nadia.",
+      "John takes Nadia to turn her into the police - hoping to clear his name as a wanted bank robber."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "Where is the mail-order bride from?",
+    "ground_truth_answer": "Russia",
+    "relevant_contexts": [
+      "John Buckingham (Ben Chaplin), a lonely St Albans bank clerk, orders a mail-order bride Nadia (Nicole Kidman) from Russia on the Internet.",
+      "John, disguised as Alexei, leaves for Russia with Sophia.",
+      "Though Nadia cannot speak English and John cannot speak Russian, they soon bond."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "Who shows up to celebrate Nadia's birthday?",
+    "ground_truth_answer": "Nadia's cousin Yuri and his friend Alexei",
+    "relevant_contexts": [
+      "Later on, a man she introduces as her cousin Yuri (Mathieu Kassovitz) and his friend Alexei (Vincent Cassel) turn up to celebrate her birthday.",
+      "Nadia, Yuri, and Alexei are criminals, and Alexei is actually Nadia's boyfriend.",
+      "He leaves her at the airport, where she is kidnapped by Alexei â who now wants Nadia to have the baby."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "Who does Alexei hold hostage?",
+    "ground_truth_answer": "Nadia",
+    "relevant_contexts": [
+      "After a violent altercation, Alexei holds Nadia hostage and demands a ransom from John.",
+      "He leaves her at the airport, where she is kidnapped by Alexei â who now wants Nadia to have the baby.",
+      "Nadia, Yuri, and Alexei are criminals, and Alexei is actually Nadia's boyfriend."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "What does Buckingham do to pay the ransom for Nadia?",
+    "ground_truth_answer": "He steals from the bank he works for",
+    "relevant_contexts": [
+      "John Buckingham (Ben Chaplin), a lonely St Albans bank clerk, orders a mail-order bride Nadia (Nicole Kidman) from Russia on the Internet.",
+      "John has grown to care for Nadia and is forced to steal from the bank where he has worked for ten years.",
+      "He eventually manages to free himself and quickly learns that Nadia has been left behind after Alexei discovered she was pregnant."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "What does Buckingham realize after he robs the bank and pays ransom?",
+    "ground_truth_answer": "Nadia, Alexei, and Yuri are cons who duped him",
+    "relevant_contexts": [
+      "Nadia, Yuri, and Alexei are criminals, and Alexei is actually Nadia's boyfriend.",
+      "He leaves her at the airport, where she is kidnapped by Alexei â who now wants Nadia to have the baby.",
+      "After a violent altercation, Alexei holds Nadia hostage and demands a ransom from John."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "What is Nadia's real name?",
+    "ground_truth_answer": "Sophia",
+    "relevant_contexts": [
+      "Nadia informs John that her real name is Sophia.",
+      "John, disguised as Alexei, leaves for Russia with Sophia.",
+      "John gets dressed and subsequently gets into a scrap with Nadia, who later reveals that she can indeed speak English and that her name is not Nadia."
+    ],
+    "relevant_chunk_ids": [
+      "a50d2c6c-230c-41b5-86c8-6a9038b4d7e2"
+    ],
+    "source_document_id": "042bb7019f583cebe3290795149fdc70412ad813"
+  },
+  {
+    "question": "What is death row called?",
+    "ground_truth_answer": "The Green Mile",
+    "relevant_contexts": [
+      "In 1935, Paul supervises fellow officers Brutus \"Brutal\" Howell, Dean Stanton, Harry Terwilliger and Percy Wetmore at Cold Mountain Penitentiary on what they refer to as the \"Green Mile\", Death Row.",
+      "In a Louisiana assisted-living home in 1999, Paul Edgecomb begins to cry while watching the film Top Hat."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "What does Paul suffer from?",
+    "ground_truth_answer": "Suvior bladder control",
+    "relevant_contexts": [
+      "John begins to demonstrate supernatural powers; he cures Paul's bladder infection, resurrects Mr.",
+      "Paul, suffering from a severe bladder infection, receives a physically imposing, but mentally challenged, black man, John Coffey, into his custody; John had been convicted of raping and murdering two little white girls.",
+      "In 1935, Paul supervises fellow officers Brutus \"Brutal\" Howell, Dean Stanton, Harry Terwilliger and Percy Wetmore at Cold Mountain Penitentiary on what they refer to as the \"Green Mile\", Death Row."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "What is the name of the black man Paul receives?",
+    "ground_truth_answer": "John Coffey",
+    "relevant_contexts": [
+      "Paul, suffering from a severe bladder infection, receives a physically imposing, but mentally challenged, black man, John Coffey, into his custody; John had been convicted of raping and murdering two little white girls.",
+      "Paul concludes his story by telling Elaine that John's was the last execution that either he or Brutus supervised; following Coffey's execution they both took jobs in the juvenile system.",
+      "John tells Paul, distraught over the notion of executing an innocent man, that he does in fact wish to die, as he views the world as a cruel place."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "What was John Coffey convicted of?",
+    "ground_truth_answer": "rape and murder of two little white girls",
+    "relevant_contexts": [
+      "Paul, suffering from a severe bladder infection, receives a physically imposing, but mentally challenged, black man, John Coffey, into his custody; John had been convicted of raping and murdering two little white girls.",
+      "One of the other inmates is a Native-American named Arlen Bitterbuck, who is charged with murder and is the first to be executed.",
+      "Paul concludes his story by telling Elaine that John's was the last execution that either he or Brutus supervised; following Coffey's execution they both took jobs in the juvenile system."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "Who is the nephew of Louisiana's First Lady?",
+    "ground_truth_answer": "Percy",
+    "relevant_contexts": [
+      "Percy demonstrates a severe sadistic and bullying streak, but is beyond reproach; he is the nephew of Louisiana's First Lady, but only Paul is bold enough to defy this.",
+      "This last affliction he releases into Percy, who under its influence shoots another prisoner, mass murderer William Wharton, dead.",
+      "In 1935, Paul supervises fellow officers Brutus \"Brutal\" Howell, Dean Stanton, Harry Terwilliger and Percy Wetmore at Cold Mountain Penitentiary on what they refer to as the \"Green Mile\", Death Row."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "Who is abusive to \"del\"?",
+    "ground_truth_answer": "Percy",
+    "relevant_contexts": [
+      "This last affliction he releases into Percy, who under its influence shoots another prisoner, mass murderer William Wharton, dead.",
+      "In 1935, Paul supervises fellow officers Brutus \"Brutal\" Howell, Dean Stanton, Harry Terwilliger and Percy Wetmore at Cold Mountain Penitentiary on what they refer to as the \"Green Mile\", Death Row.",
+      "Percy demonstrates a severe sadistic and bullying streak, but is beyond reproach; he is the nephew of Louisiana's First Lady, but only Paul is bold enough to defy this."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "Why does Del's body explode?",
+    "ground_truth_answer": "Percy failed to soak the sponge ",
+    "relevant_contexts": [
+      "In 1935, Paul supervises fellow officers Brutus \"Brutal\" Howell, Dean Stanton, Harry Terwilliger and Percy Wetmore at Cold Mountain Penitentiary on what they refer to as the \"Green Mile\", Death Row.",
+      "Percy demonstrates a severe sadistic and bullying streak, but is beyond reproach; he is the nephew of Louisiana's First Lady, but only Paul is bold enough to defy this.",
+      "This last affliction he releases into Percy, who under its influence shoots another prisoner, mass murderer William Wharton, dead."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "Who demonstrates supernatural powers?",
+    "ground_truth_answer": "John",
+    "relevant_contexts": [
+      "John begins to demonstrate supernatural powers; he cures Paul's bladder infection, resurrects Mr.",
+      "John then reveals the story psychically to Paul, but in so doing releases his supernatural energy into Paul.",
+      "John tells Paul, distraught over the notion of executing an innocent man, that he does in fact wish to die, as he views the world as a cruel place."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "How is Paul's bladder problem fixed?",
+    "ground_truth_answer": "John uses magic",
+    "relevant_contexts": [
+      "John begins to demonstrate supernatural powers; he cures Paul's bladder infection, resurrects Mr.",
+      "John then reveals the story psychically to Paul, but in so doing releases his supernatural energy into Paul.",
+      "John tells Paul, distraught over the notion of executing an innocent man, that he does in fact wish to die, as he views the world as a cruel place."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "How does John die?",
+    "ground_truth_answer": "execution",
+    "relevant_contexts": [
+      "Paul concludes his story by telling Elaine that John's was the last execution that either he or Brutus supervised; following Coffey's execution they both took jobs in the juvenile system.",
+      "Jingles, which Del had adopted, repeatedly calls him by a gay slur, and ultimately sabotages his execution by failing to soak the sponge used to conduct electricity to Del's head; Del's body explodes in flames and he dies screaming in pain.",
+      "John tells Paul, distraught over the notion of executing an innocent man, that he does in fact wish to die, as he views the world as a cruel place."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "What was Paul Edgecomb watching in the assisted-living home which caused him to cry?",
+    "ground_truth_answer": "Top Hat.",
+    "relevant_contexts": [
+      "In a Louisiana assisted-living home in 1999, Paul Edgecomb begins to cry while watching the film Top Hat.",
+      "Mentioning that he had never before seen a movie, John watches Top Hat with the other guards as a last request.",
+      "In 1935, Paul supervises fellow officers Brutus \"Brutal\" Howell, Dean Stanton, Harry Terwilliger and Percy Wetmore at Cold Mountain Penitentiary on what they refer to as the \"Green Mile\", Death Row."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "What was Paul's job in 1935?",
+    "ground_truth_answer": "He was a prison officer who was in charge of the electric chair and death row.",
+    "relevant_contexts": [
+      "His companion Elaine becomes concerned and Paul explains to her that the film reminded him of the events of 1935, which took place when he was a prison officer, in charge of death row and the state's electric chair.",
+      "In 1935, Paul supervises fellow officers Brutus \"Brutal\" Howell, Dean Stanton, Harry Terwilliger and Percy Wetmore at Cold Mountain Penitentiary on what they refer to as the \"Green Mile\", Death Row.",
+      "He is particularly abusive with inmate Eduard \"Del\" Delacroix; he breaks Del's fingers with his baton, steps on a pet mouse named Mr."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "What did Paul suffer from?",
+    "ground_truth_answer": "Severe bladder infection.",
+    "relevant_contexts": [
+      "Paul, suffering from a severe bladder infection, receives a physically imposing, but mentally challenged, black man, John Coffey, into his custody; John had been convicted of raping and murdering two little white girls.",
+      "John begins to demonstrate supernatural powers; he cures Paul's bladder infection, resurrects Mr.",
+      "Percy demonstrates a severe sadistic and bullying streak, but is beyond reproach; he is the nephew of Louisiana's First Lady, but only Paul is bold enough to defy this."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "What crime was John Coffey convicted for?",
+    "ground_truth_answer": "The rape and murder of two little white girls.",
+    "relevant_contexts": [
+      "Paul, suffering from a severe bladder infection, receives a physically imposing, but mentally challenged, black man, John Coffey, into his custody; John had been convicted of raping and murdering two little white girls.",
+      "One of the other inmates is a Native-American named Arlen Bitterbuck, who is charged with murder and is the first to be executed.",
+      "Paul concludes his story by telling Elaine that John's was the last execution that either he or Brutus supervised; following Coffey's execution they both took jobs in the juvenile system."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "What did Percy fail to do which resulted in Del's painful death?",
+    "ground_truth_answer": "He failed to soak the sponge that would've conducted electricity to Del's head.",
+    "relevant_contexts": [
+      "Jingles, which Del had adopted, repeatedly calls him by a gay slur, and ultimately sabotages his execution by failing to soak the sponge used to conduct electricity to Del's head; Del's body explodes in flames and he dies screaming in pain.",
+      "He is particularly abusive with inmate Eduard \"Del\" Delacroix; he breaks Del's fingers with his baton, steps on a pet mouse named Mr.",
+      "Jingles, Del's mouse."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "What did John do to Melinda Moores?",
+    "ground_truth_answer": "He healed her of her brain tumor.",
+    "relevant_contexts": [
+      "Jingles, and heals Melinda Moores, wife of the prison's chief warden, of a brain tumor.",
+      "He is particularly abusive with inmate Eduard \"Del\" Delacroix; he breaks Del's fingers with his baton, steps on a pet mouse named Mr.",
+      "In 1935, Paul supervises fellow officers Brutus \"Brutal\" Howell, Dean Stanton, Harry Terwilliger and Percy Wetmore at Cold Mountain Penitentiary on what they refer to as the \"Green Mile\", Death Row."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "Who was actually responsible to the crime John was convicted for?",
+    "ground_truth_answer": "Percy Wetmore.",
+    "relevant_contexts": [
+      "In 1935, Paul supervises fellow officers Brutus \"Brutal\" Howell, Dean Stanton, Harry Terwilliger and Percy Wetmore at Cold Mountain Penitentiary on what they refer to as the \"Green Mile\", Death Row.",
+      "This last affliction he releases into Percy, who under its influence shoots another prisoner, mass murderer William Wharton, dead.",
+      "Percy demonstrates a severe sadistic and bullying streak, but is beyond reproach; he is the nephew of Louisiana's First Lady, but only Paul is bold enough to defy this."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "Why did John tell Paul that he wanted to die?",
+    "ground_truth_answer": "John viewed the world as a cruel place.",
+    "relevant_contexts": [
+      "John tells Paul, distraught over the notion of executing an innocent man, that he does in fact wish to die, as he views the world as a cruel place.",
+      "John begins to demonstrate supernatural powers; he cures Paul's bladder infection, resurrects Mr.",
+      "John then reveals the story psychically to Paul, but in so doing releases his supernatural energy into Paul."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "What was John's last request?",
+    "ground_truth_answer": "Watch Top Hat with the other guards.",
+    "relevant_contexts": [
+      "Mentioning that he had never before seen a movie, John watches Top Hat with the other guards as a last request.",
+      "In a Louisiana assisted-living home in 1999, Paul Edgecomb begins to cry while watching the film Top Hat.",
+      "One of the other inmates is a Native-American named Arlen Bitterbuck, who is charged with murder and is the first to be executed."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "What creature from 1935 still lives in 1999 along with Paul?",
+    "ground_truth_answer": "Mr. Jingles, Del's mouse.",
+    "relevant_contexts": [
+      "Jingles, Del's mouse.",
+      "He is particularly abusive with inmate Eduard \"Del\" Delacroix; he breaks Del's fingers with his baton, steps on a pet mouse named Mr.",
+      "Jingles, which Del had adopted, repeatedly calls him by a gay slur, and ultimately sabotages his execution by failing to soak the sponge used to conduct electricity to Del's head; Del's body explodes in flames and he dies screaming in pain."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "Why did John Coffey Watch \"Top Hat\"?",
+    "ground_truth_answer": "John had never seen a movie before.",
+    "relevant_contexts": [
+      "Mentioning that he had never before seen a movie, John watches Top Hat with the other guards as a last request.",
+      "Paul concludes his story by telling Elaine that John's was the last execution that either he or Brutus supervised; following Coffey's execution they both took jobs in the juvenile system.",
+      "John begins to demonstrate supernatural powers; he cures Paul's bladder infection, resurrects Mr."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "Who is Percy a nephew of?",
+    "ground_truth_answer": "Louisiana's First Lady.",
+    "relevant_contexts": [
+      "Percy demonstrates a severe sadistic and bullying streak, but is beyond reproach; he is the nephew of Louisiana's First Lady, but only Paul is bold enough to defy this.",
+      "In a Louisiana assisted-living home in 1999, Paul Edgecomb begins to cry while watching the film Top Hat.",
+      "One of the other inmates is a Native-American named Arlen Bitterbuck, who is charged with murder and is the first to be executed."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "Why was Paul distraught about killing John?",
+    "ground_truth_answer": "Because John was innocent of the crime he was convicted of.",
+    "relevant_contexts": [
+      "John tells Paul, distraught over the notion of executing an innocent man, that he does in fact wish to die, as he views the world as a cruel place.",
+      "Paul, suffering from a severe bladder infection, receives a physically imposing, but mentally challenged, black man, John Coffey, into his custody; John had been convicted of raping and murdering two little white girls.",
+      "Wharton had from the moment of his arrival been a troublemaker; he attacked the guards as he was being escorted into the block, made mischief on two occasions later which caused Paul to order him restrained in the block's padded cell, groped Percy briefly, racially insulted John, and revealed psychically to John that he is in fact responsible for the crime for which John was unjustly condemned."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "What does Paul break on Del's body with his baton?",
+    "ground_truth_answer": "Del's fingers.",
+    "relevant_contexts": [
+      "He is particularly abusive with inmate Eduard \"Del\" Delacroix; he breaks Del's fingers with his baton, steps on a pet mouse named Mr.",
+      "Jingles, which Del had adopted, repeatedly calls him by a gay slur, and ultimately sabotages his execution by failing to soak the sponge used to conduct electricity to Del's head; Del's body explodes in flames and he dies screaming in pain.",
+      "Jingles, Del's mouse."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "Who cries while watching \"Top Hat\" in 1999?",
+    "ground_truth_answer": "Paul.",
+    "relevant_contexts": [
+      "In a Louisiana assisted-living home in 1999, Paul Edgecomb begins to cry while watching the film Top Hat.",
+      "In 1935, Paul supervises fellow officers Brutus \"Brutal\" Howell, Dean Stanton, Harry Terwilliger and Percy Wetmore at Cold Mountain Penitentiary on what they refer to as the \"Green Mile\", Death Row.",
+      "Percy demonstrates a severe sadistic and bullying streak, but is beyond reproach; he is the nephew of Louisiana's First Lady, but only Paul is bold enough to defy this."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "Who is afraid of the dark?",
+    "ground_truth_answer": "John.",
+    "relevant_contexts": [
+      "That night, John is executed, although he refuses the customary hood, as he is afraid of the dark.",
+      "John begins to demonstrate supernatural powers; he cures Paul's bladder infection, resurrects Mr.",
+      "John then reveals the story psychically to Paul, but in so doing releases his supernatural energy into Paul."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "What is the last affliction given to Percy from John cause?",
+    "ground_truth_answer": "It causes Percy to shoot William Wharton.",
+    "relevant_contexts": [
+      "This last affliction he releases into Percy, who under its influence shoots another prisoner, mass murderer William Wharton, dead.",
+      "Percy, meanwhile, is committed to the insane asylum which, ironically, Wharton had come from, and where he, Percy, was hopeful of getting a job.",
+      "Wharton had from the moment of his arrival been a troublemaker; he attacked the guards as he was being escorted into the block, made mischief on two occasions later which caused Paul to order him restrained in the block's padded cell, groped Percy briefly, racially insulted John, and revealed psychically to John that he is in fact responsible for the crime for which John was unjustly condemned."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "How old is Paul?",
+    "ground_truth_answer": "108 years old.",
+    "relevant_contexts": [
+      "Paul reveals that he is, in fact, 108 years of age, and not only is he still alive, so is Mr.",
+      "In a Louisiana assisted-living home in 1999, Paul Edgecomb begins to cry while watching the film Top Hat.",
+      "In 1935, Paul supervises fellow officers Brutus \"Brutal\" Howell, Dean Stanton, Harry Terwilliger and Percy Wetmore at Cold Mountain Penitentiary on what they refer to as the \"Green Mile\", Death Row."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "When does Paul receive John's supernatural energy?",
+    "ground_truth_answer": "When John reveals to Paul that William Wharton committed the crime that John was convicted of.",
+    "relevant_contexts": [
+      "John then reveals the story psychically to Paul, but in so doing releases his supernatural energy into Paul.",
+      "Wharton had from the moment of his arrival been a troublemaker; he attacked the guards as he was being escorted into the block, made mischief on two occasions later which caused Paul to order him restrained in the block's padded cell, groped Percy briefly, racially insulted John, and revealed psychically to John that he is in fact responsible for the crime for which John was unjustly condemned.",
+      "John begins to demonstrate supernatural powers; he cures Paul's bladder infection, resurrects Mr."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "Who was comitted to the insane asylum where he had hoped to work at?",
+    "ground_truth_answer": "Percy.",
+    "relevant_contexts": [
+      "Percy, meanwhile, is committed to the insane asylum which, ironically, Wharton had come from, and where he, Percy, was hopeful of getting a job.",
+      "This last affliction he releases into Percy, who under its influence shoots another prisoner, mass murderer William Wharton, dead.",
+      "In 1935, Paul supervises fellow officers Brutus \"Brutal\" Howell, Dean Stanton, Harry Terwilliger and Percy Wetmore at Cold Mountain Penitentiary on what they refer to as the \"Green Mile\", Death Row."
+    ],
+    "relevant_chunk_ids": [
+      "7871f4c8-8ae9-4f36-901a-9bd10d3bf562"
+    ],
+    "source_document_id": "08373775c3d82d8bbf4ff286a3a0076a3627c652"
+  },
+  {
+    "question": "Why is Elise being followed by the Police?",
+    "ground_truth_answer": "Because her lover was wanted for not paying millions in back taxes and they thought she would lead them to the man.",
+    "relevant_contexts": [
+      "Acheson has spent years hunting Alexander Pearce, a lover of Elise, who owes ÂŁ744 million in back taxes, and is believed to have received plastic surgery to alter his appearance.",
+      "A British woman, Elise Clifton-Ward (Angelina Jolie), is being followed by French Police who are working with Scotland Yard under the direction of Inspector John Acheson (Paul Bettany).",
+      "At a Parisian cafe, Elise receives written instructions from Pearce: Board the train to Venice; pick out a man; let the police believe that he is Pearce."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "What were Pearce's written instructions to Elise?",
+    "ground_truth_answer": "Board the train to Venice, pick out a man and make the Police believe that he is Pearce.",
+    "relevant_contexts": [
+      "At a Parisian cafe, Elise receives written instructions from Pearce: Board the train to Venice; pick out a man; let the police believe that he is Pearce.",
+      "Aware of her location, but not of the ruse, an informer from the police station communicates to Reginald Shaw (Steven Berkoff), the mobster from whom Pearce stole $2.3 billion, that Pearce is traveling with Elise on the train to Venice.",
+      "Pearce leaves further instructions for Elise to attend a ball."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "What did Frank do for a living?",
+    "ground_truth_answer": "He was a math teacher at a community college in America.",
+    "relevant_contexts": [
+      "On the train, Elise selects Frank Tupelo (Johnny Depp), who is apparently an American mathematics teacher from a community college in Wisconsin.",
+      "Elise invites Frank to stay with her at her suite in the Hotel Danieli in Venice.",
+      "Elise abandons Frank, who is then chased by Shaw's men."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "Once Elise got to Venice, what new instructions did Pearce give to her?",
+    "ground_truth_answer": "Pearce told Elise to attend a ball.",
+    "relevant_contexts": [
+      "Pearce leaves further instructions for Elise to attend a ball.",
+      "At the ball, as Elise tries to spot Pearce in the crowd, an envelope is placed on the table in front of her, but the man (Rufus Sewell) disappears into the crowd.",
+      "At a Parisian cafe, Elise receives written instructions from Pearce: Board the train to Venice; pick out a man; let the police believe that he is Pearce."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "Why did the Italian Police say they were detaining Frank?",
+    "ground_truth_answer": "They detained him for his own safety.",
+    "relevant_contexts": [
+      "While trying to escape from them, Frank is detained by the Italian police, ostensibly for his own safety, only to have a corrupt inspector turn him over to Shaw's men in exchange for the bounty that has been placed on Pearce's head.",
+      "She leaves Frank at the airport with his passport and money, urging him to go home for his own safety.",
+      "Acheson, receiving a message that Pearce has been found near their position, rushes to find the police have detained an Englishman."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "What is revealed about Elise?",
+    "ground_truth_answer": "She is an undercover Scotland Yard Agent who is under suspension because of her suspected relationship with Pearce.",
+    "relevant_contexts": [
+      "Elise is revealed to be an undercover Scotland Yard agent who was under suspension for her suspected sympathies with Pearce.",
+      "A British woman, Elise Clifton-Ward (Angelina Jolie), is being followed by French Police who are working with Scotland Yard under the direction of Inspector John Acheson (Paul Bettany).",
+      "Acheson has spent years hunting Alexander Pearce, a lover of Elise, who owes ÂŁ744 million in back taxes, and is believed to have received plastic surgery to alter his appearance."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "What does Frank tell Shaw when he confronts him?",
+    "ground_truth_answer": "That he is really Pearce, not an American Tourist.",
+    "relevant_contexts": [
+      "Frank then suggests a \"solution\" to this dilemma; to Elise's surprise, he opens the safe by entering the correct code, thus revealing that he is really Alexander Pearce.",
+      "On the train, Elise selects Frank Tupelo (Johnny Depp), who is apparently an American mathematics teacher from a community college in Wisconsin.",
+      "Elise tells Frank that she loves him, but she also loves Pearce."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "What does the Chief Inspector order his men to do when he arrives on the scene?",
+    "ground_truth_answer": "He orders the snipers to fire.",
+    "relevant_contexts": [
+      "Chief Inspector Jones (Timothy Dalton) arrives at the police stake-out, overrides Acheson, and orders the snipers to fire, killing Shaw and his men.",
+      "Despite Elise's peril, Acheson repeatedly turns down police requests to intervene with their snipers.",
+      "Jones orders the case to be closed, much to Acheson's frustration."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "What is in the safe?",
+    "ground_truth_answer": "The money that was needed to pay back the taxes.",
+    "relevant_contexts": [
+      "Acheson prepares to chase after Pearce, but Jones overrides him, reasoning that with the taxes now paid in full, Pearce's only crime is that he stole money from a now-dead gangster.",
+      "Acheson has spent years hunting Alexander Pearce, a lover of Elise, who owes ÂŁ744 million in back taxes, and is believed to have received plastic surgery to alter his appearance.",
+      "The police monitor the situation inside the rendezvous room through audio and video links."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "Why don't the Police chase Pearce after he escapes?",
+    "ground_truth_answer": "Because the back taxes were now paid up.",
+    "relevant_contexts": [
+      "Acheson prepares to chase after Pearce, but Jones overrides him, reasoning that with the taxes now paid in full, Pearce's only crime is that he stole money from a now-dead gangster.",
+      "Acheson has spent years hunting Alexander Pearce, a lover of Elise, who owes ÂŁ744 million in back taxes, and is believed to have received plastic surgery to alter his appearance.",
+      "At a Parisian cafe, Elise receives written instructions from Pearce: Board the train to Venice; pick out a man; let the police believe that he is Pearce."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "Who follows Ward?",
+    "ground_truth_answer": "French police",
+    "relevant_contexts": [
+      "A British woman, Elise Clifton-Ward (Angelina Jolie), is being followed by French Police who are working with Scotland Yard under the direction of Inspector John Acheson (Paul Bettany).",
+      "At a Parisian cafe, Elise receives written instructions from Pearce: Board the train to Venice; pick out a man; let the police believe that he is Pearce.",
+      "Elise burns the note, evades the police and boards the train."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "Who owes Millions in taxes?",
+    "ground_truth_answer": "Pearce",
+    "relevant_contexts": [
+      "Acheson has spent years hunting Alexander Pearce, a lover of Elise, who owes ÂŁ744 million in back taxes, and is believed to have received plastic surgery to alter his appearance.",
+      "Elise is revealed to be an undercover Scotland Yard agent who was under suspension for her suspected sympathies with Pearce.",
+      "Acheson prepares to chase after Pearce, but Jones overrides him, reasoning that with the taxes now paid in full, Pearce's only crime is that he stole money from a now-dead gangster."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "To Where does Elise board the train?",
+    "ground_truth_answer": "Venice",
+    "relevant_contexts": [
+      "At a Parisian cafe, Elise receives written instructions from Pearce: Board the train to Venice; pick out a man; let the police believe that he is Pearce.",
+      "Elise invites Frank to stay with her at her suite in the Hotel Danieli in Venice.",
+      "Aware of her location, but not of the ruse, an informer from the police station communicates to Reginald Shaw (Steven Berkoff), the mobster from whom Pearce stole $2.3 billion, that Pearce is traveling with Elise on the train to Venice."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "Who does Elise choose to pose as Pearce?",
+    "ground_truth_answer": "Frank",
+    "relevant_contexts": [
+      "On the train, Elise selects Frank Tupelo (Johnny Depp), who is apparently an American mathematics teacher from a community college in Wisconsin.",
+      "Elise abandons Frank, who is then chased by Shaw's men.",
+      "Elise tells Frank that she loves him, but she also loves Pearce."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "Who is the mobster?",
+    "ground_truth_answer": "Reginald Shaw",
+    "relevant_contexts": [
+      "Aware of her location, but not of the ruse, an informer from the police station communicates to Reginald Shaw (Steven Berkoff), the mobster from whom Pearce stole $2.3 billion, that Pearce is traveling with Elise on the train to Venice.",
+      "Elise abandons Frank, who is then chased by Shaw's men.",
+      "Elise rescues Frank just before he is handed over, leading Shaw's men on an extended boat chase and finally escaping."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "What does Elise do with the note?",
+    "ground_truth_answer": "Burns it",
+    "relevant_contexts": [
+      "Elise burns the note, evades the police and boards the train.",
+      "After the police surprise Frank, Elise reads the note.",
+      "A British woman, Elise Clifton-Ward (Angelina Jolie), is being followed by French Police who are working with Scotland Yard under the direction of Inspector John Acheson (Paul Bettany)."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "Where is Elise's suite?",
+    "ground_truth_answer": "Hotel Danielli",
+    "relevant_contexts": [
+      "Elise invites Frank to stay with her at her suite in the Hotel Danieli in Venice.",
+      "A British woman, Elise Clifton-Ward (Angelina Jolie), is being followed by French Police who are working with Scotland Yard under the direction of Inspector John Acheson (Paul Bettany).",
+      "Acheson has spent years hunting Alexander Pearce, a lover of Elise, who owes ÂŁ744 million in back taxes, and is believed to have received plastic surgery to alter his appearance."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "What is revealed about Elise's occupation ?",
+    "ground_truth_answer": "She is an undercover Yard Agent",
+    "relevant_contexts": [
+      "Elise is revealed to be an undercover Scotland Yard agent who was under suspension for her suspected sympathies with Pearce.",
+      "A British woman, Elise Clifton-Ward (Angelina Jolie), is being followed by French Police who are working with Scotland Yard under the direction of Inspector John Acheson (Paul Bettany).",
+      "She spends much time with him, seeming to start a romance."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "Who is held handcuffed by police during the chase?",
+    "ground_truth_answer": "Frank",
+    "relevant_contexts": [
+      "On the train, Elise selects Frank Tupelo (Johnny Depp), who is apparently an American mathematics teacher from a community college in Wisconsin.",
+      "Elise abandons Frank, who is then chased by Shaw's men.",
+      "Elise rescues Frank just before he is handed over, leading Shaw's men on an extended boat chase and finally escaping."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "What does Jones order about the case?",
+    "ground_truth_answer": "It be closed",
+    "relevant_contexts": [
+      "Jones orders the case to be closed, much to Acheson's frustration.",
+      "When the police open the safe they find only one cheque: It is for ÂŁ744 million.",
+      "Chief Inspector Jones (Timothy Dalton) arrives at the police stake-out, overrides Acheson, and orders the snipers to fire, killing Shaw and his men."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "What is the name of the agent who has spent years hunting Alexander Pearce?",
+    "ground_truth_answer": "John Acheson",
+    "relevant_contexts": [
+      "A British woman, Elise Clifton-Ward (Angelina Jolie), is being followed by French Police who are working with Scotland Yard under the direction of Inspector John Acheson (Paul Bettany).",
+      "Acheson has spent years hunting Alexander Pearce, a lover of Elise, who owes ÂŁ744 million in back taxes, and is believed to have received plastic surgery to alter his appearance.",
+      "Acheson, receiving a message that Pearce has been found near their position, rushes to find the police have detained an Englishman."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "What is Frank Tupelo's real name?",
+    "ground_truth_answer": "Alexander Pearce",
+    "relevant_contexts": [
+      "Frank then suggests a \"solution\" to this dilemma; to Elise's surprise, he opens the safe by entering the correct code, thus revealing that he is really Alexander Pearce.",
+      "Acheson has spent years hunting Alexander Pearce, a lover of Elise, who owes ÂŁ744 million in back taxes, and is believed to have received plastic surgery to alter his appearance.",
+      "Elise tells Frank that she loves him, but she also loves Pearce."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "What is John Acheson's job?",
+    "ground_truth_answer": "He is an Inspector at Scotland Yard.",
+    "relevant_contexts": [
+      "A British woman, Elise Clifton-Ward (Angelina Jolie), is being followed by French Police who are working with Scotland Yard under the direction of Inspector John Acheson (Paul Bettany).",
+      "Elise is revealed to be an undercover Scotland Yard agent who was under suspension for her suspected sympathies with Pearce.",
+      "Chief Inspector Jones (Timothy Dalton) arrives at the police stake-out, overrides Acheson, and orders the snipers to fire, killing Shaw and his men."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "Why, at the end of the story, does Pearce leave the police a check for exactly 744 million pounds?",
+    "ground_truth_answer": "That is the amount of money he owes the government in back-taxes.",
+    "relevant_contexts": [
+      "Acheson has spent years hunting Alexander Pearce, a lover of Elise, who owes ÂŁ744 million in back taxes, and is believed to have received plastic surgery to alter his appearance.",
+      "Acheson prepares to chase after Pearce, but Jones overrides him, reasoning that with the taxes now paid in full, Pearce's only crime is that he stole money from a now-dead gangster.",
+      "She leaves Frank at the airport with his passport and money, urging him to go home for his own safety."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "What is the name of the mobster that Pearce stole money from?",
+    "ground_truth_answer": "Reginald Shaw",
+    "relevant_contexts": [
+      "Aware of her location, but not of the ruse, an informer from the police station communicates to Reginald Shaw (Steven Berkoff), the mobster from whom Pearce stole $2.3 billion, that Pearce is traveling with Elise on the train to Venice.",
+      "When Elise arrives at the destination, Shaw takes her prisoner, threatening to harm her unless she reveals the location of the stolen money.",
+      "Elise abandons Frank, who is then chased by Shaw's men."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "How much money do Pearce and Elise get away with?",
+    "ground_truth_answer": "$2.3 billion",
+    "relevant_contexts": [
+      "Aware of her location, but not of the ruse, an informer from the police station communicates to Reginald Shaw (Steven Berkoff), the mobster from whom Pearce stole $2.3 billion, that Pearce is traveling with Elise on the train to Venice.",
+      "Acheson has spent years hunting Alexander Pearce, a lover of Elise, who owes ÂŁ744 million in back taxes, and is believed to have received plastic surgery to alter his appearance.",
+      "At a Parisian cafe, Elise receives written instructions from Pearce: Board the train to Venice; pick out a man; let the police believe that he is Pearce."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "At the beginning of the story, how has Pearce hidden himself from the police?",
+    "ground_truth_answer": "He has had plastic surgery to change his face.",
+    "relevant_contexts": [
+      "Acheson has spent years hunting Alexander Pearce, a lover of Elise, who owes ÂŁ744 million in back taxes, and is believed to have received plastic surgery to alter his appearance.",
+      "While trying to escape from them, Frank is detained by the Italian police, ostensibly for his own safety, only to have a corrupt inspector turn him over to Shaw's men in exchange for the bounty that has been placed on Pearce's head.",
+      "Chief Inspector Jones (Timothy Dalton) arrives at the police stake-out, overrides Acheson, and orders the snipers to fire, killing Shaw and his men."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "What city is this story set in?",
+    "ground_truth_answer": "Venice",
+    "relevant_contexts": [
+      "At a Parisian cafe, Elise receives written instructions from Pearce: Board the train to Venice; pick out a man; let the police believe that he is Pearce.",
+      "Elise invites Frank to stay with her at her suite in the Hotel Danieli in Venice.",
+      "Aware of her location, but not of the ruse, an informer from the police station communicates to Reginald Shaw (Steven Berkoff), the mobster from whom Pearce stole $2.3 billion, that Pearce is traveling with Elise on the train to Venice."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "What is the name of the Chief Inspector?",
+    "ground_truth_answer": "Jones",
+    "relevant_contexts": [
+      "Chief Inspector Jones (Timothy Dalton) arrives at the police stake-out, overrides Acheson, and orders the snipers to fire, killing Shaw and his men.",
+      "To Elise's obvious pleasure, Jones lifts her suspension and terminates her employment.",
+      "Acheson prepares to chase after Pearce, but Jones overrides him, reasoning that with the taxes now paid in full, Pearce's only crime is that he stole money from a now-dead gangster."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  },
+  {
+    "question": "What is the name of the undercover agent who is in love with Pearce?",
+    "ground_truth_answer": "Elise Clifton-Ward",
+    "relevant_contexts": [
+      "A British woman, Elise Clifton-Ward (Angelina Jolie), is being followed by French Police who are working with Scotland Yard under the direction of Inspector John Acheson (Paul Bettany).",
+      "Elise is revealed to be an undercover Scotland Yard agent who was under suspension for her suspected sympathies with Pearce.",
+      "Acheson has spent years hunting Alexander Pearce, a lover of Elise, who owes ÂŁ744 million in back taxes, and is believed to have received plastic surgery to alter his appearance."
+    ],
+    "relevant_chunk_ids": [
+      "5dc4e230-fd9e-4458-961d-cbd93c810d03"
+    ],
+    "source_document_id": "087c29795e06ed5b8e29361606c12b6390db9270"
+  }
+]

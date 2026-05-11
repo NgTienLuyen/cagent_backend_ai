@@ -1,0 +1,74 @@
+[
+  {
+    "question_id": 1,
+    "question": "Sinh viên cần đạt điều kiện gì để đăng ký học thêm ngành thứ hai?",
+    "generated_answer": "Để được đăng ký học thêm ngành thứ hai tại Trường Đại học CMC, sinh viên cần đáp ứng các điều kiện sau (theo \"Quy chế đào tạo\"):\n\n*   **a) Tích lũy được 40 tín chỉ;**\n*   **b) Có kết quả học tập từ khá trở lên** và đáp ứng ngưỡng đảm bảo chất lượng của ngành thứ hai của năm tuyển sinh (điểm xét tuyển và khối tuyển sinh) **hoặc có kết quả học tập xếp loại trung bình** và đáp ứng điều kiện trúng tuyển của ngành thứ hai trong năm tuyển sinh;\n*   **c) Đáp ứng yêu cầu về điểm tổng kết của một số học phần** theo quy định của Trường;\n*   **d) Khi học ngành thứ hai, sinh viên được công nhận kết quả những học phần có nội dung và khối lượng kiến thức tương đương có trong ngành thứ nhất** (theo quy định của Trường);\n*   **e) Thời gian tối đa được phép học đối với sinh viên học cùng lúc hai chương trình là thời gian tối đa quy định cho chương trình thứ nhất**\n*   **f) Sinh viên chỉ được xét tốt nghiệp ngành thứ hai nếu đạt điều kiện tốt nghiệp ngành thứ nhất.**",
+    "ground_truth": "a ) Tích lũy được 40 tín chỉ ; b ) Có kết quả học tập từ khá trở lên và đáp ứng ngưỡng đảm bảo chất lượng của ngành thứ hai của năm tuyển sinh ( điểm xét tuyển và khối tuyển sinh ) hoặc có kết quả học tập xếp loại trung bình và đáp ứng điều kiện trúng tuyển của ngành thứ hai trong năm tuyển sinh ; c ) Đáp ứng yêu cầu về điểm tổng kết của một số học phần theo quy định của Trường ; d ) Khi học ngành thứ hai , sinh viên được công nhận kết quả những học phần có nội dung và khối lượng kiến thức tương đương có trong ngành thứ nhất ( theo quy định của Trường ) ; e ) Thời gian tối đa được phép học đối với sinh viên học cùng lúc hai chương trình là thời gian tối đa quy định cho chương trình thứ nhất , quy định tại Khoản 5 Điều 3 của Quy chế này ; f ) Sinh viên chỉ được xét tốt nghiệp ngành thứ hai nếu đạt điều kiện tốt nghiệp ngành thứ nhất .",
+    "retrieved_contexts_count": 10,
+    "faithfulness_score": 1.0,
+    "relevancy_score": 0.9,
+    "context_recall_score": 1.0,
+    "similarity_score": 0.808,
+    "overall_score": 0.927
+  },
+  {
+    "question_id": 2,
+    "question": "Sinh viên đăng ký học ngành thứ hai cần làm gì?",
+    "generated_answer": "Để đăng ký học ngành thứ hai, sinh viên cần thực hiện các bước sau (theo \"Quy chế đào tạo\"):\n\n1.  **Làm đơn:** Sinh viên làm đơn theo mẫu quy định của Trường và nộp tại Phòng Đào tạo.\n2.  **Xét duyệt:** Phòng Đào tạo trình đơn lên Hiệu trưởng để xét duyệt.\n3.  **Nộp lệ phí:** Khi đăng ký học hai ngành, sinh viên phải nộp lệ phí theo quy định của Trường (nếu có).\n\nNgoài ra, sinh viên cần đáp ứng các điều kiện sau để được đăng ký học thêm ngành thứ hai:\n\n*   **Tích lũy đủ tín chỉ:** Tích lũy được 40 tín chỉ.\n*   **Kết quả học tập:**\n    *   Có kết quả học tập từ khá trở lên và đáp ứng ngưỡng đảm bảo chất lượng của ngành thứ hai của năm tuyển sinh (điểm xét tuyển và khối tuyển sinh).\n    *   Hoặc có kết quả học tập xếp loại trung bình và đáp ứng điều kiện trúng tuyển của ngành thứ hai trong năm tuyển sinh.\n*   **Điểm tổng kết:** Đáp ứng yêu cầu về điểm tổng kết của một số học phần theo quy định của Trường.\n*   **Công nhận kết quả học phần:** Khi học ngành thứ hai, sinh viên được công nhận kết quả những học phần có nội dung và khối lượng kiến thức tương đương có trong ngành thứ nhất (theo quy định của Trường).\n*   **Thời gian tối đa:** Thời gian tối đa được phép học đối với sinh viên học cùng lúc hai chương trình là thời gian tối đa quy định cho chương trình thứ nhất.\n*   **Điều kiện tốt nghiệp:** Sinh viên chỉ được xét tốt nghiệp ngành thứ hai nếu đạt điều kiện tốt nghiệp ngành thứ nhất.\n\n(Trích dẫn từ \"Quy chế đào tạo\")",
+    "ground_truth": "Việc đăng ký học ngành hai , sinh viên làm đơn theo mẫu quy định của Trường và nộp tại Phòng Đào tạo , trình Hiệu trưởng xét duyệt . Khi đăng ký học hai ngành , sinh viên phải nộp lệ phí theo quy định của Trường ( nếu có ) .",
+    "retrieved_contexts_count": 10,
+    "faithfulness_score": 1.0,
+    "relevancy_score": 0.9,
+    "context_recall_score": 1.0,
+    "similarity_score": 0.838,
+    "overall_score": 0.934
+  },
+  {
+    "question_id": 3,
+    "question": "Hiệu trưởng có vai trò gì trong việc trao đổi sinh viên?",
+    "generated_answer": "Chào bạn, theo quy chế tổ chức và hoạt động của Trường Đại học CMC, Hiệu trưởng có vai trò quan trọng trong việc trao đổi sinh viên. Cụ thể:\n\n*   **Quyết định công nhận:** Hiệu trưởng quyết định việc công nhận về quy trình đào tạo, nội dung đào tạo và giá trị tín chỉ của cơ sở đào tạo đại học khác. Đây là căn cứ để cho phép sinh viên của Trường Đại học CMC được học một số học phần tại cơ sở đào tạo khác và ngược lại (trao đổi sinh viên). (Theo: Quy chế tổ chức hoạt động)\n\n*   **Điều kiện trao đổi sinh viên:** Điều kiện trao đổi sinh viên, hợp tác đào tạo, việc công nhận kết quả học tập và chuyển đổi tín chỉ cho sinh viên thực hiện theo quy định của Trường. Mọi thông tin liên quan được công khai trên Cổng thông tin của Trường.(Theo: Quy chế đào tạo)",
+    "ground_truth": "Hiệu trưởng quyết định việc công nhận về quy trình đào tạo , nội dung đào tạo và giá trị tín chỉ của cơ sở đào tạo đại học khác làm căn cứ cho phép sinh viên của Trường được học một số học phần tại cơ sở đào tạo khác và ngược lại ( sau đây gọi là trao đổi sinh viên ) .",
+    "retrieved_contexts_count": 10,
+    "faithfulness_score": 0.9,
+    "relevancy_score": 0.9,
+    "context_recall_score": 1.0,
+    "similarity_score": 0.86,
+    "overall_score": 0.915
+  },
+  {
+    "question_id": 4,
+    "question": "Việc công nhận giá trị tín chỉ trong trao đổi sinh viên được thực hiện trên cơ sở nào?",
+    "generated_answer": "Dựa theo \"Quy chế đào tạo\", việc công nhận giá trị tín chỉ trong trao đổi sinh viên được thực hiện trên cơ sở:\n\n*   **Đối sánh và xét tương đương:** Ở cấp độ hai chương trình đào tạo của hai trường; cấp độ học phần hoặc nhóm học phần trong hai chương trình đào tạo của hai trường. Việc đối sánh và xét tương đương được thực hiện theo các phương diện chuẩn đầu ra, nội dung đào tạo, hình thức đào tạo, quy trình quản lý và tổ chức đào tạo, phương pháp tổ chức dạy học, phương pháp tổ chức khảo thí đánh giá và các yếu tố đảm bảo chất lượng cho đào tạo.\n*   **Quy định của Trường:** Việc công nhận kết quả học tập và chuyển đổi tín chỉ cho sinh viên thực hiện theo quy định của Trường.\n*   **Quyết định của Hiệu trưởng:** Hiệu trưởng quyết định việc công nhận về quy trình đào tạo, nội dung đào tạo và giá trị tín chỉ của cơ sở đào tạo đại học khác làm căn cứ cho phép sinh viên của Trường được học một số học phần tại cơ sở đào tạo khác và ngược lại (sau đây gọi là trao đổi sinh viên).",
+    "ground_truth": "Việc công nhận về quy trình đào tạo , nội dung đào tạo và giá trị của tín chỉ được thực hiện trên cơ sở đối sánh và xét tương đương ở cấp độ hai chương trình đào tạo của hai trường ; cấp độ học phần hoặc nhóm học phần trong hai chương trình đào tạo của hai trường .",
+    "retrieved_contexts_count": 10,
+    "faithfulness_score": 1.0,
+    "relevancy_score": 0.9,
+    "context_recall_score": 1.0,
+    "similarity_score": 0.927,
+    "overall_score": 0.957
+  },
+  {
+    "question_id": 5,
+    "question": "Quyết định này của Trường Đại học CMC về vấn đề gì?",
+    "generated_answer": "Dựa trên thông tin từ các quy định được cung cấp, có hai loại quyết định chính của Trường Đại học CMC:\n\n1.  **Quyết định về Quy chế đào tạo trình độ đại học:** Quyết định này (số hiệu 02/2023/QĐ-ĐHCMC-HĐT) ban hành kèm theo Quy chế đào tạo trình độ đại học của Trường Đại học CMC. Quyết định này có hiệu lực kể từ ngày ký, thay thế Quyết định số 34/2022/QĐ-ĐHCMC-ĐT ngày 07/11/2022 và áp dụng kể từ năm học 2023 - 2024. (Theo \"Quy chế đào tạo\")\n\n2.  **Quyết định về Quy chế tổ chức và hoạt động:** Quyết định này ban hành kèm theo Quy chế tổ chức và hoạt động của Trường Đại học CMC. (Theo \"Quy chế tổ chức hoạt động\")",
+    "ground_truth": "Về việc ban hành Quy chế đào tạo trình độ đại học của Trường Đại học CMC",
+    "retrieved_contexts_count": 10,
+    "faithfulness_score": 1.0,
+    "relevancy_score": 0.4,
+    "context_recall_score": 1.0,
+    "similarity_score": 0.867,
+    "overall_score": 0.817
+  },
+  {
+    "question_id": 6,
+    "question": "Trường Đại học CMC ban hành Quy chế đào tạo trình độ đại học dựa trên những căn cứ pháp lý nào?",
+    "generated_answer": "Trường Đại học CMC ban hành Quy chế đào tạo trình độ đại học dựa trên các căn cứ pháp lý sau đây (Theo: Quy chế đào tạo):\n\n1.  **Luật Giáo dục đại học ngày 18 tháng 6 năm 2012.**\n2.  **Luật sửa đổi, bổ sung một số điều của Luật Giáo dục đại học ngày 19 tháng 11 năm 2018.**\n3.  **Nghị định số 99/2019/NĐ-CP ngày 30 tháng 12 năm 2019 của Chính phủ quy định chi tiết và hướng dẫn thi hành một số điều của Luật sửa đổi, bổ sung một số điều của Luật Giáo dục đại học.**\n4.  **Quyết định số 683/QĐ-TTg ngày 10 tháng 5 năm 2011 của Thủ tướng Chính phủ về việc thành lập Trường Đại học Mỹ thuật Công nghiệp Á Châu.**\n5.  **Quyết định số 895/QĐ-TTg ngày 26 tháng 7 năm 2022 của Thủ tướng Chính phủ về việc đổi tên Trường Đại học Mỹ thuật Công nghiệp Á Châu thành Trường Đại học CMC.**\n6.  **Thông tư số 08/2021/TT-BGDĐT ngày 18 tháng 3 năm 2021 của Bộ trưởng Bộ Giáo dục và Đào tạo về việc ban hành Quy chế đào tạo trình độ đại học.**\n7.  **Quyết định số 02/2023/QĐ-ĐHCMC-HĐT ngày 05 tháng 5 năm 2023 của Chủ tịch Hội đồng Trường về việc ban hành Quy chế tổ chức và hoạt động Trường Đại học CMC.**",
+    "ground_truth": "Căn cứ Luật Giáo dục đại học ngày 18 tháng 6 năm 2012 ; Căn cứ Luật sửa đổi , bổ sung một số điều của Luật Giáo dục đại học ngày 19 tháng 11 năm 2018 ; Căn cứ Nghị định số 99/2019 / NĐ-CP ngày 30 tháng 12 năm 2019 của Chính phủ quy định chi tiết và hướng dẫn thi hành một số điều của Luật sửa đổi , bổ sung một số điều của Luật Giáo dục đại học ; Căn cứ Quyết định số 683 / QĐ-TTg ngày 10 tháng 5 năm 2011 của Thủ tướng Chính phủ về việc thành lập Trường Đại học Mỹ thuật Công nghiệp Á Châu ; Căn cứ Quyết định số 895 / QĐ-TTg ngày 26 tháng 7 năm 2022 của Thủ tướng Chính phủ về việc đổi tên Trường Đại học Mỹ thuật Công nghiệp Á Châu thành Trường Đại học CMC ; Căn cứ Thông tư số 08/2021 / TT-BGDĐT ngày 18 tháng 3 năm 2021 của Bộ trưởng Bộ Giáo dục và Đào tạo về việc ban hành Quy chế đào tạo trình độ đại học ; Căn cứ Quyết định số 02/2023 / QĐ-ĐHCMC-HĐT ngày 05 tháng 5 năm 2023 của Chủ tịch Hội đồng Trường về việc ban hành Quy chế tổ chức và hoạt động Trường Đại học CMC ; Theo đề nghị của Hiệu trưởng Trường Đại học CMC",
+    "retrieved_contexts_count": 10,
+    "faithfulness_score": 1.0,
+    "relevancy_score": 0.9,
+    "context_recall_score": 1.0,
+    "similarity_score": 0.796,
+    "overall_score": 0.924
+  }
+]

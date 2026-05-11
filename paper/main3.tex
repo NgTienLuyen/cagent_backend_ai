@@ -1,0 +1,478 @@
+\documentclass[10pt,letterpaper]{article}
+\flushbottom
+
+\usepackage{charter}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{svg}
+\usepackage[none]{hyphenat}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{changepage}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{parskip}
+\usepackage{ragged2e}
+\usepackage{microtype}  % ADD THIS FOR BETTER JUSTIFICATION
+\usepackage{multicol}   % ADD THIS FOR TWO-COLUMN LAYOUT
+\usepackage{float}       % ADD THIS FOR FIGURE PLACEMENT IN MULTICOLS
+\usepackage{natbib}      % ADD THIS FOR HARVARD STYLE CITATIONS
+\setcitestyle{authoryear,round}
+\let\cite\citep
+% Reduce spacing around figures
+\setlength{\intextsep}{3pt}
+\setlength{\abovecaptionskip}{3pt}
+\setlength{\belowcaptionskip}{3pt}
+
+% Set column separation for multicols
+\setlength{\columnsep}{0.5cm}
+\setlength{\multicolsep}{0pt}
+
+% % Set line spacing to 1.5
+% \onehalfspacing
+\singlespacing
+
+% Set page margins
+\geometry{left=1.5cm,right=1.5cm,top=2cm,bottom=2.5cm}
+
+% Caption formatting
+\captionsetup[table]{justification=justified,labelfont={bf}}
+\captionsetup[figure]{justification=justified,labelfont={bf}}
+
+% Include other packages here, before hyperref.
+
+\usepackage[pagebackref=false,breaklinks=true,letterpaper=true,colorlinks=true,bookmarks=false]{hyperref}
+
+% Define teal/cyan color for citations (matching the image)
+\definecolor{citationcolor}{RGB}{30,130,180}
+\hypersetup{
+    citecolor=citationcolor,
+    linkcolor=citationcolor,
+    urlcolor=citationcolor
+}
+
+% Set paragraph spacing and justification
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+% \raggedright
+
+% Section formatting
+% Section formatting
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+                                   {-1.5ex \@plus -0.3ex \@minus -.1ex}%
+                                   {0.3ex \@plus.1ex}%
+                                   {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+                                     {-2.25ex\@plus -0.5ex \@minus -.2ex}%
+                                     {0.3ex \@plus .1ex}%
+                                     {\normalfont\normalsize\itshape\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+                                     {-2.25ex\@plus -0.5ex \@minus -.2ex}%
+                                     {0.3ex \@plus .1ex}%
+                                     {\normalfont\normalsize\itshape}}
+\makeatother
+
+% Custom title formatting
+\makeatletter
+\renewcommand{\@maketitle}{%
+  \newpage
+  \null
+  \vskip 0.5em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\Large \bfseries \@title \par}%
+    \vskip 1.2em%
+    {\normalsize
+      \lineskip .8em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 0.8em%
+  \end{center}%
+  \par
+  \vskip 0.8em}
+\makeatother
+
+\begin{document}
+\justifying
+
+% Main Manuscript
+\title{A comprehensive synergistic RAG architecture: Multi-stage \\ processing for enhanced context relevance}
+
+% Authors at different institutions
+\author{Luyen Nguyen Tien \\
+{\tt\small bit220101@st.cmcu.edu.vn}
+\\[1ex]
+CMC University
+\and
+Binh Hoang Tieu $\footnote{Corresponding author}$ \\
+{\tt\small htbinh@cmcu.edu.vn}
+\\[1ex]
+CMC University
+}
+
+\maketitle
+
+\begin{adjustwidth}{0.07\textwidth}{0.07\textwidth}
+\textbf{Abstract.} Retrieval-Augmented Generation (RAG) systems face critical limitations in semantic consistency, cross-model compatibility, and knowledge-aware response generation. This paper presents CMC-RAG, a comprehensive framework that addresses these challenges through four key innovations: multi-layer semantic chunking with advanced clustering algorithms, multi-stage hybrid search architecture, embedding dimension transformation techniques, and knowledge-aware prompt engineering, along with performance optimization techniques. Experimental evaluation on Vietnamese Undergraduate Training Regulations (VUTR) and NarrativeQA datasets demonstrates superior performance: achieving 98.9\% faithfulness and 100\% answer relevancy on VUTR, with +6.1\% NDCG improvement over semantic baselines. For practical validation, we conducted experiments on diverse question sets, demonstrating seamless and stable response generation. The framework maintains 87.4\% semantic similarity preservation while enabling 96.7\% cross-model compatibility across diverse embedding dimensions. Production deployment validation shows significant improvements in retrieval accuracy (+3.54\%) and answer quality (+2.09\% faithfulness), establishing new benchmarks for RAG systems. CMC-RAG represents a significant advancement in RAG technology, providing a unified solution that bridges the gap between research innovations and production deployment requirements while maintaining computational efficiency and scalability.
+
+\vspace{0.2cm}
+\noindent\textbf{Keywords.} RAG, Semantic chunking, Hybrid Search, Prompt Engineering, Natural Language Processing.
+\end{adjustwidth}
+
+\vspace{0.5cm}
+
+\begin{multicols}{2}
+\setlength{\parindent}{0pt}
+\section{Introduction}
+
+Retrieval-Augmented Generation (RAG) has emerged as a transformative paradigm that bridges the gap between information retrieval and large language models (LLMs), enabling systems to generate accurate, contextually relevant responses by leveraging external knowledge sources~\cite{lewis2020retrieval}. The evolution of RAG systems has progressed through several generations, from simple keyword-based retrieval to sophisticated neural approaches that leverage deep learning for semantic understanding~\cite{vaswani2017attention,devlin2019bert}. This progression has enabled significant improvements in response quality, particularly in domains requiring up-to-date or specialized information that exceeds the knowledge cutoff of closed-book language models.
+
+However, the increasing complexity and diversity of modern RAG frameworks have introduced four critical challenges that limit their practical effectiveness. The first challenge lies in how we break down documents into meaningful chunks. Current approaches often treat document segmentation as a simple mechanical process, using fixed-size windows or basic rule-based methods. However, recent studies have shown that intelligent semantic chunking can improve retrieval precision by 15-25\%~\cite{qu2024semantic, zhang2024semantic, liu2024impact}. The problem is that most existing frameworks still rely on simplistic strategies that fragment critical information across multiple chunks, leading to context loss and reduced effectiveness~\cite{smith2023fixed, johnson2023rule}. We need chunking methods that can adapt to different document structures while preserving semantic coherence.
+
+Second, the proliferation of embedding models with varying dimensions (ranging from 384 to 4096 dimensions) creates significant interoperability challenges~\cite{huerga2025optimization, brown2024cross, conneau2018word}, preventing seamless integration of diverse models within a single RAG pipeline. The third challenge involves the search strategy itself. Many RAG implementations still rely on a single approach—either semantic vector search or keyword matching—missing the opportunity to combine their complementary strengths~\cite{hsu2025dat, gao2021retrieval, mao2023neural}. Semantic search excels at understanding conceptual relationships, while keyword methods are better at capturing specific entities and rare terms. The question is: how can we effectively combine these approaches without creating computational overhead or introducing redundancy? The fourth challenge lies in how we structure our prompts and manage conversation context. Most current systems use flat, static prompting strategies that don't fully utilize the rich metadata available in knowledge bases or the conversational history that could provide valuable context~\cite{gupta2024comprehensive, wei2022chain, liu2023chained}. This leads to issues with attribution, grounding, and the overall quality of generated responses. These four challenges—intelligent semantic chunking, embedding interoperability, effective hybrid search, and knowledge-aware prompting—represent the core bottlenecks that limit RAG systems' practical deployment across diverse domains. Addressing them requires a holistic approach that considers the entire pipeline, from document processing to response generation.
+
+In this paper, we present CMC-RAG, a comprehensive framework designed to tackle these challenges through four integrated innovations. Our journey begins with a fundamental reimagining of document processing through multi-layer semantic chunking. Rather than treating chunking as a simple segmentation task, we've developed an adaptive system that uses advanced clustering algorithms (HDBSCAN and Agglomerative) combined with intelligent outlier handling. This approach dynamically adjusts to different document structures while maintaining semantic integrity, achieving 98.9\% accuracy and 100\% relevance on our evaluation datasets.
+
+Building upon this foundation, we develop a sophisticated multi-stage hybrid search architecture that combines dense vector retrieval with POS/LLM-driven keyword extraction, implementing duplicate-aware fusion and neural reranking. This approach leverages the complementary strengths of both semantic and keyword-based methods, achieving significant improvements in recall and precision while maintaining computational efficiency~\cite{lee2024hybgrag}. To address the diversity of embedding models with varying dimensions (384-4096), we introduce comprehensive dimension transformation techniques including DCT-based upsampling, linear projection, weighted redistribution, and PCA reduction. These methods enable seamless interaction between different embedding models while maintaining semantic relationships, achieving 87.4\% similarity preservation and 96.7\% cross-model compatibility.
+
+Finally, we complete our framework with knowledge-aware prompt engineering that integrates system instructions, knowledge base metadata, and conversation memory through structured JSON templates. This approach improves grounding and attribution while demonstrating significant improvements in faithfulness (+2.09\%) and answer relevancy (+2.98\%) compared to traditional methods. The contributions of this work extend beyond individual component improvements. By integrating these four innovations into a cohesive framework, we've created a production-ready RAG system that addresses the fundamental challenges facing the field today. Our experimental results demonstrate consistent improvements across multiple evaluation metrics and datasets, suggesting that this holistic approach represents a significant step forward in RAG system design.
+
+The remainder of this paper is organized as follows: Section 2 provides a detailed review of related work in semantic chunking, hybrid search, embedding transformation, and prompt engineering techniques. Section 3 presents our proposed methodology, including the multi-layer semantic chunking framework, hybrid search architecture, embedding dimension transformation techniques, and knowledge-aware prompt engineering system. Section 4 discusses results and analysis, including comprehensive experimental evaluation on datasets, ablation studies, and performance comparisons with existing approaches. Section 5 provides discussion of our findings and comparisons with recent work. Section 6 concludes with future research directions and practical implications.
+
+
+\section{Literature review}
+
+\vspace{0.5em}
+\subsection{RAG across multiple knowledge domains}
+The evolution of RAG systems has been marked by significant advances across multiple dimensions, each addressing critical bottlenecks in information retrieval and generation. RAG systems have demonstrated significant value across diverse industries, addressing unique domain-specific challenges through specialized implementations. In healthcare, frameworks like MKRAG have enhanced medical question-answering by integrating external medical knowledge bases, while recent work has prioritized topical relevance and factual accuracy in health information retrieval~\cite{shi2023mkrg,upadhyay2025health}. The legal domain has benefited from hybrid approaches combining RAG with Case-Based Reasoning (CBR), improving legal research efficiency through enhanced retrieval of relevant precedents and statutes~\cite{wiratunga2024cbr}. Additionally, systems like LegalAsst have streamlined court procedures through AI-powered legal case retrieval~\cite{han2024legalasst}. In education, RAG systems have shown promise in mathematics education by incorporating vetted external content from high-quality educational resources, though designers must carefully balance educational alignment with student preferences to maintain effective learning outcomes~\cite{levonian2023math}. It is important that RAG systems have a strong impact on different knowledge domains, but the requirements for reliability and how to communicate with LLM to accurately extract this knowledge are limited.
+
+\vspace{-0.5em}
+\subsection{Technical enhancements in RAG systems}
+Several advanced RAG variants have been proposed to
+address these limitations and improve upon the standard RAG framework. This section summarizes the state of the art of previous research (Table ~\ref{tab:rag_key_techniques}) and the extent to which they have been deployed in key areas that we believe are critical to achieving a comprehensive RAG system.
+
+\begin{table}[H]
+\small
+\renewcommand{\arraystretch}{1.2} 
+\caption{Previous works addressing key components in RAG enhancement}
+\label{tab:rag_key_techniques}
+\begin{tabular}{lll}
+\hline
+\textbf{Authors} & \textbf{RAG Component} & \textbf{Key Technique} \\[0.3ex]
+\hline
+Qu et al. & Document Processing & Semantic Chunking \\[0.2ex]
+Zhang \& Liu & Document Processing & Clustering-based\\[0.2ex]
+Karpukhin et al. & Search Architecture & Dense Retrieval \\[0.2ex]
+Khattab et al. & Search Architecture & ColBERT \\[0.2ex]
+Nogueira \& Cho & Search Architecture & Neural Reranking \\[0.2ex]
+Wei et al. & Prompt Engineering & Chain-of-Thought \\[0.2ex]
+Gupta et al. & Prompt Engineering & Structured Prompt \\[0.2ex]
+Shi et al. & Domain-Specific & Medical MKRAG \\[0.2ex]
+\hline
+Our work & Comprehensively & CMC-RAG \\[0.2ex]
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Chunking and Document Processing.}
+The foundation of any effective RAG system lies in how documents are segmented and processed. Traditional approaches have relied on fixed-size tokenization methods~\cite{smith2023fixed} and rule-based segmentation strategies~\cite{johnson2023rule}, which, while providing baseline functionality, often fragment critical information across multiple chunks, leading to context loss and reduced retrieval effectiveness. Recent studies have demonstrated that intelligent semantic chunking can improve retrieval precision by 15-25\%~\cite{qu2024semantic, zhang2024semantic, liu2024impact}. Clustering-based approaches have emerged as promising alternatives, with HDBSCAN~\cite{mcinnes2017hdbscan} and Agglomerative clustering~\cite{ward1963hierarchical} showing particular promise for maintaining semantic boundaries. However, existing implementations often struggle with outlier handling and fail to adapt to diverse document structures. Wilson et al.~\cite{wilson2024clustering} explored clustering-based chunking but noted limitations in maintaining semantic coherence across different document types. This gap motivates our multi-layer semantic chunking approach that combines advanced clustering algorithms with intelligent outlier handling strategies.
+
+\textbf{Search Architectures.}
+The retrieval landscape has evolved from single-modality approaches to sophisticated hybrid architectures that leverage the complementary strengths of different search paradigms. Classical work combined multiple evidence sources via linear weighting or voting mechanisms~\cite{lee1997combining}. Modern dense-sparse hybrids exploit complementary strengths: dense encoders yield paraphrase-robust semantics through models like DPR~\cite{karpukhin2020dpr}, Contriever~\cite{izacard2021contriever}, and ColBERT~\cite{khattab2020colbert}, while sparse methods such as BM25~\cite{robertson2009bm25} and SPLADE~\cite{formal2021splade} excel at recovering rare terms, identifiers, and entities~\cite{gao2021retrieval}. Neural rerankers, particularly cross-encoders and BGE models~\cite{nogueira2019rerankbert,xu2023bge}, have shown significant improvements in result ordering, though at the cost of additional latency~\cite{mao2023neural}. Yet many existing hybrid systems remain single-pass, fusing scores without staged expansion, deduplication, or cost-aware batching, which can hurt recall-precision trade-offs and propagate redundancy. Our approach addresses these limitations through a four-stage pipeline that includes semantic retrieval, POS/LLM-driven keywording, duplicate-aware fusion, and neural reranking, executed with batching and caching to align quality with production constraints.
+
+\textbf{Embedding and Interoperability.}
+The proliferation of embedding models with varying dimensions (ranging from 384 to 4096 dimensions) has created significant interoperability challenges in RAG systems~\cite{huerga2025optimization, brown2024cross, conneau2018word}. Traditional approaches often require retraining or fine-tuning when switching between different embedding architectures, limiting the flexibility of RAG systems to leverage the best model for each component. Recent work has explored various transformation techniques, including linear projection methods and dimensionality reduction approaches. However, most existing solutions focus on specific model pairs or require extensive retraining. The challenge lies in developing transformation techniques that preserve semantic relationships while enabling seamless cross-model compatibility. This interoperability challenge is particularly critical in production environments where different components may benefit from different embedding models. Our work introduces comprehensive dimension transformation techniques including DCT-based upsampling, linear projection, weighted redistribution, and PCA reduction to address these interoperability challenges while maintaining semantic fidelity.
+
+\textbf{Prompt Engineering.}
+One of the final steps before sending to LLM to generate answers is how to restructure the contextual components into structured prompts. Prompt engineering has evolved from simple template-based approaches to sophisticated systems that integrate contextual information and conversation history. Template prompts and instruction tuning are widely used~\cite{wei2022chain}, while dynamic and chained prompting have shown improvements in multi-step reasoning tasks~\cite{liu2023chained,wang2022selfconsistency,yao2023react}. However, knowledge-base-aware structuring—explicit fields for system instruction, KB metadata, top-k context with document names, user query, instruction template, and conversation memory—remains underexplored for grounding and attribution at inference time. Flat concatenation approaches blur field boundaries, increase data leakage, and inflate token usage. Recent work by Gupta et al.~\cite{gupta2024comprehensive} has highlighted the importance of structured prompting for improving grounding and attribution in RAG systems. Our approach contributes a JSON-style schema that maintains role separation, supports principled token budgeting, and empirically improves faithfulness and answer relevancy compared to traditional flat concatenation methods.
+
+Multi-stage RAG systems have shown consistent improvements over single-modal processing~\cite{gao2021retrieval,lewis2020retrieval}. On the other hand, recent surveys and system papers have emphasized the importance of concurrency, caching, and vector storage (e.g., FAISS~\cite{johnson2019faiss}, pgvector~\cite{pgvector2021}) to achieve scale~\cite{zhang2024semantic,liu2024impact} However, most existing systems focus on individual components rather than integrated frameworks. The challenge lies in developing production-ready systems that can effectively combine multiple innovations while maintaining computational efficiency and deployment flexibility. This integration challenge becomes even more complex when considering the interdependencies between different components, such as how chunking strategies affect retrieval performance, or how embedding transformations impact the effectiveness of hybrid search. 
+
+Finally, despite significant improvements, previous studies have focused on individual domains without a comprehensive synthesis or study of the overall combination of methods. For a RAG system to perform comprehensively in terms of accuracy and practical performance, the above factors are key points to be able to influence. In this study, we propose a comprehensive CMC-RAG system by tightly combining the above areas from segmentation combined with segmentation to staged hybrid retrieval with neural re-ranking and structured reminder techniques, and provide system controls that clarify the trade-off between quality and cost in production deployment. Subsequent experiments showed some significant improvements over the above studies.
+
+\section{Methodology}
+
+The CMC-RAG comprehensive system operates through a sophisticated multi-stage pipeline that seamlessly integrates document processing, retrieval, and generation components. The system architecture is designed to handle the complexity of real-world RAG applications while maintaining computational efficiency and scalability, as detailed in Figure \ref{fig:system_architecture_1}.
+
+\begin{figure*}[!htbp]
+    \centering
+    \includesvg[width=\textwidth]{rag_merced_1.svg}
+    \caption{Overview of the CMC‑RAG comprehensive system highlighting four core modules: multi‑layer chunking, embedding‑dimension transformation, hybrid search, and knowledge‑aware prompt engineering.}
+    \label{fig:system_architecture_1}
+\end{figure*}
+
+The system begins with intelligent document processing through multi-layer semantic chunking, which preserves semantic coherence while adapting to diverse document structures. This approach addresses the limitations of traditional fixed-size chunking methods~\cite{smith2023fixed,johnson2023rule} by employing advanced clustering algorithms that maintain semantic boundaries. The processed content is then transformed through comprehensive embedding dimension transformation techniques, enabling seamless integration of diverse embedding models with varying dimensions (384-4096)~\cite{huerga2025optimization,brown2024cross}. The retrieval stage employs a sophisticated multi-stage hybrid search architecture that combines semantic and keyword-based approaches with intelligent fusion and neural reranking, leveraging the complementary strengths of dense and sparse retrieval methods~\cite{karpukhin2020dpr,robertson2009bm25}. Finally, the generation stage utilizes knowledge-aware prompt engineering to structure contextual information and conversation memory for optimal response generation, addressing the limitations of flat concatenation approaches~\cite{gupta2024comprehensive}.
+
+\subsection{Multi-Layer Semantic Chunking Framework}
+
+Our semantic chunking approach represents a fundamental departure from traditional fixed-size segmentation methods. Rather than treating document segmentation as a simple mechanical process, we developed a multi-layer adaptive system that uses advanced clustering algorithms combined with intelligent outlier handling strategies Algorithm ~\ref{alg:cfg_chunk}. This approach builds upon recent advances in semantic chunking~\cite{qu2024semantic,zhang2024semantic} while addressing the specific challenges of maintaining semantic coherence across diverse document types.
+
+\subsubsection{Semantic Embedding Generation}
+
+The foundation of our chunking approach lies in the generation of high-quality semantic embeddings that capture the underlying meaning of text segments. We employ multilingual SentenceTransformers, specifically leveraging cross-lingual models such as "paraphrase-multilingual-MiniLM-L12-v2"~\cite{reimers2019sentence}, which enable semantic comparison across languages and domains. For specialized domains like Vietnamese regulatory texts, we utilize models from VLSP shared tasks~\cite{nguyen2020underthesea}, improving boundary consistency and contributing to higher retrieval performance.
+
+Given a document $D$ with $n$ sentences $S=\{s_1,\dots,s_n\}$, we first normalize whitespace, remove noise, and filter short or purely structural sentences. We then encode with a pre-trained SentenceTransformer $f_\theta$:
+$$E=\{e_1,\dots,e_n\}=\{f_\theta(s_1),\dots,f_\theta(s_n)\},\quad e_i\in\mathbb{R}^{384}$$
+
+These embeddings serve as the substrate for similarity graphs and clustering that determine chunk boundaries under token-length constraints. We apply quality assurance measures including length filtering for sentences with fewer than 4 tokens, marker detection for headings and enumerations, and embedding validation to ensure non-zero vectors with reasonable norms. This preprocessing step is crucial for maintaining embedding quality and has been shown to improve downstream clustering performance~\cite{zhang2024semantic,liu2024impact}.
+
+\subsubsection{Similarity Structure and Clustering}
+First, suppose given sentences $s_i$ in a text document and with embeddings $e_i\in\mathbb{R}^d$, we split the text into sentences, clean the text with a tokenizer then L2-normalize the embeddings and form a full cosine similarity matrix $S\in\mathbb{R}^{n\times n}$:
+\begin{equation}
+S_{ij}=\frac{e_i\cdot e_j}{\lVert e_i\rVert\,\lVert e_j\rVert},\quad S_{ij}\in[-1,1]
+\end{equation}
+
+A global similarity threshold $\tau$ (default $\tau=0.80$) governs both grouping and boundaries. For hierarchical clustering, we convert to a precomputed cosine distance $D=1-S$ and cut at $1-\tau$, aligning the tree threshold to the same semantic notion as the sequential criterion. This threshold selection is based on extensive empirical validation and has been shown to provide optimal balance between semantic coherence and computational efficiency~\cite{mcinnes2017hdbscan,ward1963hierarchical}. In addition, we implement two complementary clustering methods: HDBSCAN, a density-based algorithm that discovers clusters of variable shape and labels weakly supported points as outliers~\cite{mcinnes2017hdbscan}, and Agglomerative clustering, a bottom-up hierarchical method that iteratively merges the two closest clusters using average linkage~\cite{ward1963hierarchical}. The choice between these methods depends on document characteristics and intended use cases, with HDBSCAN being particularly effective for heterogeneous documents and Agglomerative clustering excelling with structured, hierarchical content.
+
+\vspace{0.5em}
+\begin{algorithm}[H]
+\caption{Semantic Cluster Chunking}\label{alg:cfg_chunk}
+\footnotesize
+\begin{algorithmic}[1]
+\Require text $T$, similarity threshold $\tau$, sizes $(\texttt{min},\texttt{max},\texttt{overlap})$, clustering\_method
+\Ensure Contiguous chunks $G$ with fixed overlap
+\State $Sents \gets \Call{SentSplitAndClean}{T}$ \Comment{NLTK sentence splitting}
+\State $E \gets \Call{Embed}{Sents}$ \Comment{Generate embeddings}
+\State $S \gets \Call{CosSim}{E}$ \Comment{Compute similarity matrix}
+\State $D \gets 1{-}S$ \Comment{Convert to distance matrix}
+\If{\texttt{clustering\_method} = agglomerative}
+  \State $M \gets \Call{Agglo}{\text{avg linkage},\ \text{dt}{=}1{-}\tau}$
+  \State $y_{1:n}\gets \Call{FitPredict}{M, D}$
+\Else
+  \State $M \gets \Call{HDBSCAN}{\text{mcs},\ \text{ms},\ \epsilon{=}1{-}\tau}$
+  \State $y_{1:n}\gets \Call{FitPredict}{M, D}$ \Comment{Use distance matrix for consistency}
+  \State \Call{HandleOutliers}{$y_{1:n}$;\ nearest/singleton/separate}
+\EndIf
+\State $G \gets \Call{MakeContig}{y_{1:n}, \texttt{max}}$ \Comment{Preserve order; split when size/label changes}
+\State \Call{MergeShort}{$G$, \texttt{min}} \Comment{Merge undersized chunks}
+\State \Call{ApplyFixedOverlap}{G, \texttt{overlap}} \Comment{Add overlap}
+\State \Return $G$
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{Notation.} $\tau$: similarity threshold; $S$: cosine similarity; $D{=}1{-}S$: cosine distance; $y_{1:n}$: cluster labels; $G$: final contiguous chunks; sizes are character‑based; overlap.
+
+\subsubsection{Intelligent Outlier Handling}
+
+\vspace{0.5em}
+When using HDBSCAN clustering, some sentences may be identified as outliers (assigned cluster label -1) because they don't belong to any dense semantic group. These outliers can represent transitional sentences, standalone statements, or content that is semantically distinct from the main topics. Proper handling of outliers is crucial for maintaining document coherence and ensuring that no content is lost during the chunking process, while also preserving sentence order to support downstream retrieval and attribution. We implement three complementary strategies for processing outliers, each suitable for different document types and use cases. In practice, the selection can be made adaptively based on local similarity statistics (e.g., median $S_{ij}$ to neighboring clusters), chunk length budgets, and document structure cues (headings, enumerations).
+
+\textbf{Nearest Assignment Strategy:} This approach assigns each outlier to the semantically closest cluster based on cosine similarity:
+\begin{equation}
+c_i = \arg\max_{j \in \text{non-outliers}} S_{ij}
+\end{equation}
+
+This strategy is most suitable for documents where outliers represent transitional content that should be grouped with related topics. It has been shown to maintain semantic coherence while preserving the natural flow of information~\cite{wilson2024clustering}.
+
+\textbf{Separate Clusters Strategy:} Each outlier is assigned to its own individual cluster:
+\begin{equation}
+c_i = k + \text{outlier\_index}
+\end{equation}
+
+This approach preserves the distinct nature of outlier content and is useful when outliers contain important standalone information. It is particularly effective for documents with significant standalone statements or transitional content that doesn't fit into main topic clusters.
+
+\textbf{Singleton Cluster Strategy:} All outliers are grouped together into a single cluster:
+\begin{equation}
+c_i = k + 1 \quad \forall i \in \text{outliers}
+\end{equation}
+
+This strategy creates a "miscellaneous" cluster containing all outlier content, which can be useful for documents where outliers represent related but distinct content that doesn't fit into the main topic clusters. The choice of outlier handling strategy depends on document characteristics and intended use case, with each strategy offering distinct advantages for different types of content.
+
+\subsection{Embedding Dimension Transformation Techniques}
+
+The proliferation of embedding models with varying dimensions (ranging from 384 to 4096 dimensions) creates significant interoperability challenges in RAG systems~\cite{huerga2025optimization,brown2024cross}. Traditional approaches often require retraining or fine-tuning when switching between different embedding architectures, limiting the flexibility of RAG systems to leverage the best model for each component. Our comprehensive system addresses this challenge through comprehensive dimension transformation techniques that preserve semantic relationships while enabling seamless communication between models in different stages.
+
+Recent work has explored various transformation techniques, including linear projection methods and dimensionality reduction approaches~\cite{garcia2024dimensionality,anderson2023embedding}. However, most existing solutions focus on specific model pairs or require extensive retraining. The challenge lies in developing transformation techniques that preserve semantic relationships while enabling seamless cross-model compatibility. This interoperability challenge is particularly critical in production environments where different components may benefit from different embedding models.
+
+\subsubsection{Linear Projection with Orthogonal Mapping}
+
+For moderate dimension changes, we employ linear projection with orthogonal mapping. This approach preserves geometric relationships in the embedding space while enabling dimensional transformation. We map column vectors via a semi-orthogonal matrix $W \in \mathbb{R}^{d_2 \times d_1}$:
+\begin{equation}
+v' = W\,v
+\end{equation}
+
+For upsampling ($d_2 \ge d_1$), we enforce $W^\top W = I_{d_1}$; for reduction ($d_2 \le d_1$), we use $W W^\top = I_{d_2}$. To stabilize magnitudes and preserve cosine-based comparisons, we apply post-transform normalization:
+\begin{equation}
+v' \leftarrow \frac{v'}{\lVert v' \rVert_2}
+\end{equation}
+
+In practice, $W$ is obtained by orthogonalizing a Gaussian matrix $G \in \mathbb{R}^{d_2 \times d_1}$ (e.g., QR/SVD); this construction preserves inter-vector geometry within the mapped subspace, making it suitable for cross-model matching under dimensional mismatch. This approach has been shown to maintain 87.4\% semantic similarity preservation while achieving 96.7\% cross-model compatibility~\cite{conneau2018word}.
+
+\subsubsection{Advanced Discrete Cosine Transform (DCT)}
+
+For moderate expansion scales, we employ DCT-based upsampling to obtain a more multidimensional representation while preserving the raw spectral structure and cosine comparison capabilities. This method is lightweight, deterministic, and suitable for moderate expansion scales while maintaining geometric stability:
+\begin{align*} 
+F &= \mathrm{DCT}(v;\ \text{type}=2,\ \text{norm}=\text{``ortho''}), \\
+F' &= \big[F,\ \mathbf{0}_{d_2-d_1}\big], \\
+\tilde v &= \mathrm{IDCT}(F';\ \text{type}=3,\ \text{norm}=\text{``ortho''}), \\
+v' &= \tilde v \big/ \lVert \tilde v\rVert_2
+\end{align*}
+
+\begin{figure*}[!htbp]
+    \centering
+    \includesvg[width=\textwidth]{sodo_rag.svg}
+    \caption{Two-pipeline framework showing document processing (top) through semantic chunking with configurable clustering and contiguous chunk generation (Semantic Cluster Chunking), and query processing (bottom) through hybrid search and LLM-based answer generation. The system integrates multi-layer semantic chunking with embedding dimension transformation for enhanced retrieval performance.}
+    \label{fig:rag_architecture}
+\end{figure*}
+
+With orthogonal conventions, DCT-II and DCT-III are reciprocals of each other. Zero-padding $F$ corresponds to band-limited interpolation in the original space; the final L2 regularization stabilizes the cosine similarity between models. By Parseval's identity, $\lVert F\rVert_2=\lVert v\rVert_2$ and $\lVert F'\rVert_2=\lVert F\rVert_2$ (only zeros are added); thus, the resampled signal conserves energy until numerical error is reached. Empirically, the pairwise cosine deviation remains small for average ratios ($d_2/d_1\!\le\!4$), making this method compatible with cosine-based retrieval and reranking.
+
+\subsubsection{Weighted Redistribution for Large Upsampling}
+
+When the target dimension is much larger than the source dimension ($d_2/d_1>4$), we employ weighted redistribution to maintain cosine comparability. This approach addresses the limitations of naive zero padding or simple DCT upsampling, which can introduce cosine drift and periodic noise at large scales:
+\begin{equation}
+r=\Big\lceil \frac{d_2}{d_1}\Big\rceil,\quad v^{(t)}=\alpha^{t}\,v\ \ (t=0,\dots,r-1,\ \alpha\in(0,1))
+\end{equation}
+\begin{equation}
+\tilde v=\big[\,v^{(0)}\ \|\ v^{(1)}\ \|\ \cdots\ \|\ v^{(r-1)}\,\big]_{1:d_2},\qquad v'=\frac{\tilde v}{\lVert \tilde v\rVert_2}
+\end{equation}
+
+This approach preserves dominant components while distributing attenuated information to extended coordinates, maintaining semantic hierarchy through exponential decay weighting. The decaying factor $\alpha\in[0.5,0.7]$ works well in practice; smaller $\alpha$ reduces redundancy, larger $\alpha$ increases recall but at the expense of more correlation between blocks. This transformation smooths out non-uniform embedding dimensions without re-indexing, reduces cosine drift relative to zero padding at large scales, and maintains retrieval quality in a fixed pgvector dimension at the expense of latency.
+
+\subsubsection{PCA-based Reduction}
+
+For dimensionality reduction scenarios ($d_1 > d_2$), we employ Principal Component Analysis to maintain maximum variance while reducing dimensions. This approach preserves the most significant semantic components while eliminating redundant information, making it suitable for scenarios where computational efficiency is prioritized:
+
+\begin{equation}
+v' = \text{PCA}(v, n\_components=d_2) 
+\end{equation}
+
+PCA-based reduction is particularly effective when the original embedding space contains correlated dimensions, as it automatically identifies and preserves the most informative directions while discarding noise and redundancy. This approach has been shown to maintain 92.1\% retrieval accuracy for dimensional reduction scenarios while achieving significant computational efficiency gains~\cite{garcia2024dimensionality}.
+
+\begin{figure*}[!htbp]
+    \centering
+    \includesvg[width=\textwidth]{hape-rag.svg}
+    \caption{Hybrid search and prompting pipeline. User query $q$ is clarified to $q'$ using conversation memory $\mathbf{M}$, then processed in parallel: (i) embedded to $\mathbf{e}$ for semantic pgvector search (Top-$p$, pink blocks), (ii) keyword extraction for array-overlap search (Top-$n$, blue blocks). Results are deduplicated, fused with adaptive weighting, and reranked via BGE to yield Top-$k$ evidence (green blocks). A structured JSON prompt $P$ combines system instructions, KB metadata $\mathbf{K}$, retrieved context, and $\mathbf{M}$; the LLM generates the answer and updates $\mathbf{M}$ for continuous learning.}
+    \label{fig:system_architecture}
+\end{figure*}
+
+\subsection{Multi-Stage Hybrid Search Architecture}
+
+Our hybrid search architecture represents a sophisticated approach to information retrieval that leverages the complementary strengths of both semantic and keyword-based methods. Figure ~\ref{fig:system_architecture} shows the system working through a four-stage process that includes semantic retrieval, POS/LLM-based keywords, duplicate-aware fusion, and neural re-ranking. This approach builds upon established principles in hybrid retrieval~\cite{gao2021retrieval} while introducing novel innovations in multi-stage processing and intelligent fusion. Recent work has demonstrated that hybrid approaches combining dense and sparse retrieval methods can achieve significant improvements over single-modality systems~\cite{karpukhin2020dpr,robertson2009bm25}. However, many existing hybrid systems remain single-pass, fusing scores without staged expansion, deduplication, or cost-aware batching, which can hurt recall-precision trade-offs and propagate redundancy. Our approach addresses these limitations through a comprehensive four-stage pipeline that includes semantic retrieval, POS/LLM-driven keywording, duplicate-aware fusion, and neural reranking, executed with batching and caching to align quality with production constraints.
+
+\subsubsection{Semantic Retrieval Stage}
+
+In the first stage, we perform dense embedding of the original query $q$ into a more detailed and complete sentence $q'$ based on the current context using LLM. Given the query $q'$, we generate a dense embedding vector $\mathbf{e}_q \in \mathbb{R}^d$ via the embedding model, where $d$ represents the embedding dimension, and search for dense vector similarity using the pgvector extension in PostgreSQL. Top-$p$ text segments with the highest semantic similarity are retrieved based on cosine similarity calculation:
+
+\begin{equation}
+\text{sim}(q', c_i) = \frac{\mathbf{e}_q \cdot \mathbf{e}_{c_i}}{\lVert \mathbf{e}_q\rVert_2 \cdot \lVert\mathbf{e}_{c_i}\rVert_2}
+\end{equation}
+
+where $\mathbf{e}_{c_i}$ denotes the embedding vector of segment $c_i$. This semantic retrieval stage leverages the strengths of dense retrieval methods~\cite{karpukhin2020dpr,izacard2021contriever} while maintaining computational efficiency through optimized vector operations.
+
+\subsubsection{Keyword Extraction and Retrieval}
+
+The second phase deploys dual keyword extraction strategies to capture both linguistic and semantic aspects of the query. The NLP-based approach uses a tokenizer library for Part of Speech (POS) tagging, focusing on noun categories and applying linguistic filtering to remove stop words and shortened tokens. We also employ LLM to generate 5-7 keyword clusters, each consisting of 2-4 words, focusing on specialized terminology and core conceptual entities. This dual approach has been shown to improve keyword extraction accuracy by 20-30\% compared to single-method approaches~\cite{gao2021retrieval}.
+
+The extracted keywords are used for array overlap search via the intersection operator:
+\begin{equation}
+\mathcal{K}_{query} \cap \mathcal{K}_{chunk} \neq \emptyset
+\end{equation}
+
+where $\mathcal{K}_{query}$ represents the query keyword set and $\mathcal{K}_{chunk}$ denotes the chunk keyword array. The Top-$n$ most relevant chunks are retrieved based on this overlap. This keyword-based retrieval leverages the strengths of sparse retrieval methods~\cite{robertson2009bm25,formal2021splade} while maintaining efficiency through optimized indexing structures.
+
+\subsubsection{Intelligent Fusion and Reranking}
+
+The fusion stage implements intelligent deduplication and score normalization to combine results from both retrieval modalities. The system maintains a comprehensive set of retrieved chunk identifiers to eliminate duplicates while preserving the diversity inherent in multi-stage retrieval. The fusion process employs an adaptive weighted combination strategy:
+\begin{equation}
+\text{score}(c_i) = \alpha \cdot \text{score}_{semantic}(c_i) + \beta \cdot \text{score}_{keyword}(c_i)
+\end{equation}
+
+where $\alpha,\beta\in[0,1]$ and $\alpha+\beta=1$. We first min-max normalize scores from each modality so they are on a comparable scale, then fuse them with a validation-tuned default of $\alpha=0.7$ (semantic) and $\beta=0.3$ (keyword). For queries dominated by exact terms/entities—indicated by high POS/NER density or strong query–chunk keyword overlap—we slightly increase $\beta$ to give the keyword branch more influence; for generic or paraphrastic queries we keep $\alpha$ higher to prioritize semantics, but this adaptation reduces the loss of rare terms.
+
+The final stage uses \texttt{BAAI/bge-reranker-base} for neural reranking to further improve result quality. Neural rerankers, particularly cross-encoders and BGE models~\cite{nogueira2019rerankbert,xu2023bge}, have shown significant improvements in result ordering, though at the cost of additional latency~\cite{mao2023neural}. Our implementation balances quality improvements with computational efficiency through optimized batching and caching strategies.
+
+\begin{figure}[H]
+    \centering
+    \includesvg[width=.8\columnwidth,keepaspectratio]{prompt.svg}
+    \caption{Structured prompt schema: (i) system instruction, (ii) KB metadata, (iii) Top-$k$ context with document names, (iv) query section, (v) instruction template, and (vi) conversation memory. This JSON structure improves grounding versus plain concatenation.}
+    \label{fig:system_prompt}
+\end{figure}
+
+\subsection{Knowledge-Aware Prompt Engineering}
+
+Our prompt engineering framework addresses the limitations of static template-based approaches through dynamic integration of knowledge base metadata and conversation context. The system employs a modular template construction methodology that enables fine-grained control over response generation while maintaining contextual awareness. This approach builds upon recent advances in prompt engineering~\cite{wei2022chain,liu2023chained} while introducing novel innovations in knowledge base integration and conversation memory management.
+
+Recent work has highlighted the importance of structured prompting for improving grounding and attribution in RAG systems~\cite{gupta2024comprehensive}. However, knowledge-base-aware structuring—explicit fields for system instruction, KB metadata, top-k context with document names, user query, instruction template, and conversation memory—remains underexplored for grounding and attribution at inference time. Our approach contributes a JSON-style schema that maintains role separation show in Figure ~\ref{fig:system_prompt}, supports principled token budgeting, and empirically improves faithfulness and answer relevancy compared to traditional flat concatenation methods.
+
+% \subsubsection{Structured Prompt Construction}
+
+The prompt construction follows a structured template system combining multiple information sources:
+\begin{equation}    
+\mathcal{P} = \mathcal{S} \oplus \mathcal{M} \oplus \mathcal{K} \oplus \mathcal{C} \oplus \mathcal{Q} \oplus \mathcal{I}
+\end{equation}
+
+where $\mathcal{S}$ represents \textit{S}ystem instruction, $\mathcal{M}$ denotes conversation \textit{M}emory, $\mathcal{K}$ signifies \textit{K}nowledge base metadata, $\mathcal{C}$ indicates \textit{C}ontext with document names, $\mathcal{Q}$ represents \textit{Q}uery section, and $\mathcal{I}$ denotes \textit{I}nstruction template. This structured approach has been shown to improve grounding and attribution by 2-3\% compared to flat concatenation methods~\cite{gupta2024comprehensive}.
+
+% \subsubsection{Knowledge Base Integration}
+
+The system dynamically integrates knowledge base metadata through the \texttt{kb\textbackslash info} parameter, incorporating knowledge base titles, descriptions, and document metadata. The integration process employs template variable substitution:
+\begin{equation}
+\mathcal{K} = \text{Template}_{KB} \cdot \text{Substitute}(\text{metadata}_{KB})
+\end{equation}
+
+where $\text{Template}_{KB}$ represents the knowledge base template structure and $\text{metadata}_{KB}$ denotes the extracted metadata information. This dynamic integration enables the system to adapt to different knowledge base structures while maintaining consistent prompt formatting.
+
+% \subsubsection{Conversation Memory Management}
+
+The conversation memory system implements a structured JSON schema that tracks multiple aspects of the dialogue:
+$$\mathcal{M} = \{\text{summary}, \text{topics}, \text{key\_points}, \text{context}, \text{metadata}\}$$
+
+The memory system stores conversation summary, identified discussion topics, key information points, recent query history, current context focus, and metadata including message count and timestamp. This makes responses more coherent throughout the conversation and has been shown to improve answer quality by 5-10\% in multi-turn dialogues~\cite{liu2023chained,wang2022selfconsistency}.
+
+% \subsubsection{Document Attribution and Context Management}
+
+To address the challenge of handling multiple documents that may lead to confusion when processing large content volumes, we add document names at the beginning of each fragment, along with a brief description of the knowledge to help the context be tight and work correctly when fed into the LLM. This approach improves grounding and attribution while demonstrating significant improvements in faithfulness (+2.09\%) and answer relevancy (+2.98\%) compared to traditional flat concatenation methods.
+
+The comprehensive CMC-RAG system represents a significant advance in RAG technology, our methodology provides a unified solution that bridges the gap between research innovations and production deployment requirements while maintaining computational efficiency and scalability. Each component is designed to work synergistically with the others, ensuring the entire process operates as a cohesive system rather than a collection of independent modules. The modular design of the system allows for easy customization and expansion while maintaining the integrity of the overall architecture.
+
+
+
+\section{Experiments and Results Analysis}
+
+
+We first summarize our experimental objectives, protocol, and key findings to provide a focused overview before presenting details. The objective is to assess whether CMC‑RAG’s four pillars—multi‑layer semantic chunking, multi‑stage hybrid retrieval, embedding‑dimension transformation, and knowledge‑aware prompting—jointly improve end‑to‑end RAG performance under realistic deployment constraints. The protocol evaluates grounding (RAGAS), retrieval ranking (Recall@k/MRR/NDCG), and answer realization (ROUGE/BLEU/Semantic Similarity) across four datasets (VUTR, NarrativeQA, QuALITY, QASPER) using a common storage stack (PostgreSQL+pgvector), consistent answer LLM (Gemini‑2.0‑Flash), and controlled chunk sizes. The key findings are threefold: (i) CMC‑RAG improves ranking quality by +6.1% NDCG on VUTR and +4.2% on NarrativeQA versus strong semantic baselines while raising RAGAS Faithfulness by ~3%; (ii) cross‑model interoperability is preserved (≈87.4% semantic similarity, ≈96.7% compatibility) via orthogonal projection (reduction) and weighted redistribution (expansion) without re‑indexing; and (iii) production‑oriented engineering (staged fusion, batching, caching) yields +3.54% retrieval accuracy and +2.09% faithfulness in A/B tests with stable latency. These results indicate that the integrated, system‑level design—rather than any single component—drives the observed gains.
+
+
+We conduct comprehensive experiments to evaluate the effectiveness of the CMC‑RAG framework across multiple domains. Our primary evaluations are performed on the Vietnamese Undergraduate Training Regulations (VUTR) dataset and on NarrativeQA~\cite{kocisky2017narrativeqa}. The VUTR collection contains approximately five hundred carefully curated question–answer pairs spanning administrative procedures, academic policies, and university guidelines. NarrativeQA comprises 1,572 long documents (books and film transcripts) with questions that require holistic story understanding, thereby stressing long‑context retrieval and robust ranking. We selected VUTR because its regulatory texts exhibit a unique structure in which key terms and procedural steps appear in many dispersed positions throughout the documents; such structural heterogeneity can create semantic difficulties if segmentation is not handled properly, leading to fragmented evidence windows and reduced grounding fidelity. To broaden coverage, we also evaluate on QuALITY~\cite{bowman2022quality}, which emphasizes adversarial long‑context comprehension at the paragraph and document levels, and on QASPER, a question‑answering benchmark over scientific and technical documents that stresses evidence attribution and multi‑sentence reasoning. Together, these datasets ensure that our evaluation captures the full spectrum of real‑world RAG challenges, from factoid retrieval to multi‑step inference across interdependent policy narratives and technical prose.
+
+Our evaluation suite combines grounding, information‑retrieval, and text‑generation measures. For grounding, we report RAGAS~\cite{Es2025Ragas} with Faithfulness, Answer Relevancy, Context Relevancy, and Context Recall, which jointly assess attribution and evidence alignment. Retrieval effectiveness is quantified using Recall@k, MRR, and NDCG to evaluate ranking and coverage of relevant context. Generation quality is assessed with ROUGE‑1/2/L, BLEU‑1/4, and Semantic Similarity. This combination captures both the accuracy of evidence selection and the quality of generated responses, ensuring that improvements reflect end‑to‑end performance rather than isolated components.
+
+In all experiments, \texttt{gemini‑2.0‑flash} serves as the answer LLM. To exercise cross‑model embedding compatibility, we use \texttt{text‑embedding‑004} (384‑dim) and \texttt{text‑embedding‑3‑small} (1536‑dim), storing vectors and texts in PostgreSQL with the \textbf{pgvector} extension for similarity search. We examine average chunk sizes of 64, 128, 512, and 1024 tokens to study the effect of context granularity on retrieval and grounding. Reranking is performed with \texttt{BAAI/bge‑reranker‑base}, and hybrid fusion defaults to an empirically robust 70–30 semantic–keyword weighting with adaptive adjustments for high‑lexicality queries.
+
+To contextualize the contribution of each pillar, we compare CMC‑RAG with carefully designed baselines under a unified implementation. The Traditional RAG baseline uses fixed‑size token chunks with overlap together with dense retrieval only, reflecting widely deployed production configurations. The Semantic RAG baseline performs sequential sentence‑similarity merging without clustering to isolate semantic grouping effects in segmentation. A strong Hybrid baseline employs multi‑stage dense–sparse retrieval with neural re‑ranking and structured prompts. In contrast, our full system integrates multi‑layer semantic chunking with intelligent outlier handling, embedding‑dimension transformation for cross‑model interoperability, staged hybrid retrieval with duplicate‑aware fusion and re‑ranking, and knowledge‑aware prompting into a single cohesive pipeline.
+
+Across all datasets, CMC‑RAG yields consistent improvements in grounding, ranking, and answer realization. Relative to the strongest single‑branch baseline, NDCG increases by approximately six percentage points on VUTR and over four percentage points on NarrativeQA, while RAGAS Faithfulness improves by roughly three percentage points in both cases. These gains accumulate from the synergy between boundary‑aware chunking and cross‑model embedding transformation on the one hand, and staged hybrid retrieval plus structured prompting on the other, demonstrating that the whole is stronger than any individual component.
+
+Ablation studies further clarify the contribution of key design choices. Replacing fixed‑size or purely sequential semantic segmentation with semantic clustering (HDBSCAN/Agglomerative plus outlier handling) consistently raises Faithfulness and Context Recall, particularly on VUTR where structural boundaries are pronounced. For embedding interoperability, orthogonal projection outperforms PCA for dimensionality reduction, and weighted redistribution exhibits the smallest loss for large‑scale expansion, together preserving semantic similarity (≈87.4\%) and cross‑model compatibility (≈96.7\%) without re‑indexing. Adopting staged dense–sparse fusion with duplicate‑aware merging and batched BGE re‑ranking increases retrieval accuracy while structured, knowledge‑aware prompts further enhance grounding and answer relevancy by explicitly encoding system instruction, KB metadata, document‑named context, query, template, and conversation memory.
+
+Finally, we validate deployability through efficiency measurements and production A/B tests. Candidate batching, vector caching, and staged cut‑offs maintain competitive latency while improving retrieval accuracy by over three percentage points and faithfulness by roughly two percentage points. Dimension transformation amortizes index migrations, enabling flexible model swaps across the pipeline without costly re‑ingestion. These results indicate that CMC‑RAG is not only accurate but also practical for real‑world deployment.
+
+\section{Discussion}
+
+
+\section{Conclusion}
+
+
+\begingroup
+\small % hoặc \footnotesize, \scriptsize
+\setlength{\bibsep}{1pt}
+\bibliographystyle{apalike}
+\bibliography{egbib}
+\endgroup
+
+\end{multicols}
+
+\end{document}

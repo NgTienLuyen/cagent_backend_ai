@@ -1,0 +1,96 @@
+Index: test/test_api.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># import pytest\r\n# from chunking.llm_agentic_chunker import LLMAgenticChunkerv2\r\n# from llms.cohere_llm import CohereLLM\r\n# from constant import COHERE  # Đảm bảo bạn đã có constant COHERE được định nghĩa\r\n#\r\n# # Giả sử bạn đã có một API key Cohere hợp lệ\r\n# API_KEY = '9lRawWOiQK35jXEwzXG9Pe1QdC0umabHh6kK0cu4'\r\n#\r\n# @pytest.fixture\r\n# def cohere_llm():\r\n#     \"\"\"Fixture to initialize Cohere LLM.\"\"\"\r\n#     return CohereLLM(api_key=API_KEY)\r\n#\r\n# @pytest.fixture\r\n# def chunker(cohere_llm):\r\n#     \"\"\"Fixture to initialize the chunker.\"\"\"\r\n#     return LLMAgenticChunkerv2(cohere_llm)\r\n#\r\n# def test_chunking(chunker):\r\n#     \"\"\"Test the chunking functionality.\"\"\"\r\n#     text = \"This is a long document with many important points that need to be chunked into smaller sections for easier analysis.\"\r\n#\r\n#     # Gọi hàm split_text của chunker để chia văn bản thành các chunk nhỏ\r\n#     chunks = chunker.split_text(text)\r\n#\r\n#     # Kiểm tra kết quả chunking, bạn có thể thay đổi các điều kiện dựa trên mong muốn của bạn\r\n#     assert len(chunks) > 0  # Kiểm tra có ít nhất một chunk\r\n#     print(f\"Chunks: {chunks}\")\r\n#\r\n#     # Kiểm tra mỗi chunk có độ dài hợp lý (tùy theo yêu cầu của bạn)\r\n#     for chunk in chunks:\r\n#         assert len(chunk.split()) > 1  # Kiểm tra rằng mỗi chunk không trống\r\n#         print(f\"Chunk content: {chunk}\")\r\n#\r\n#     # Nếu bạn muốn kiểm tra số lượng chunk, có thể kiểm tra như sau:\r\n#     assert len(chunks) == 2  # Ví dụ bạn kỳ vọng chia thành 2 phần\r\n#\r\n#     # Đây là một ví dụ kiểm tra đơn giản, bạn có thể bổ sung các kiểm tra khác tùy vào mục đích của bạn.\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/test/test_api.py b/test/test_api.py
+--- a/test/test_api.py	(revision 6321811b0c8ea6d33906b56ad45b12f62461ea28)
++++ b/test/test_api.py	(date 1740023296892)
+@@ -1,41 +1,18 @@
+-# import pytest
+-# from chunking.llm_agentic_chunker import LLMAgenticChunkerv2
+-# from llms.cohere_llm import CohereLLM
+-# from constant import COHERE  # Đảm bảo bạn đã có constant COHERE được định nghĩa
+-#
+-# # Giả sử bạn đã có một API key Cohere hợp lệ
+-# API_KEY = '9lRawWOiQK35jXEwzXG9Pe1QdC0umabHh6kK0cu4'
+-#
+-# @pytest.fixture
+-# def cohere_llm():
+-#     """Fixture to initialize Cohere LLM."""
+-#     return CohereLLM(api_key=API_KEY)
+-#
+-# @pytest.fixture
+-# def chunker(cohere_llm):
+-#     """Fixture to initialize the chunker."""
+-#     return LLMAgenticChunkerv2(cohere_llm)
+-#
+-# def test_chunking(chunker):
+-#     """Test the chunking functionality."""
+-#     text = "This is a long document with many important points that need to be chunked into smaller sections for easier analysis."
+-#
+-#     # Gọi hàm split_text của chunker để chia văn bản thành các chunk nhỏ
+-#     chunks = chunker.split_text(text)
+-#
+-#     # Kiểm tra kết quả chunking, bạn có thể thay đổi các điều kiện dựa trên mong muốn của bạn
+-#     assert len(chunks) > 0  # Kiểm tra có ít nhất một chunk
+-#     print(f"Chunks: {chunks}")
+-#
+-#     # Kiểm tra mỗi chunk có độ dài hợp lý (tùy theo yêu cầu của bạn)
+-#     for chunk in chunks:
+-#         assert len(chunk.split()) > 1  # Kiểm tra rằng mỗi chunk không trống
+-#         print(f"Chunk content: {chunk}")
+-#
+-#     # Nếu bạn muốn kiểm tra số lượng chunk, có thể kiểm tra như sau:
+-#     assert len(chunks) == 2  # Ví dụ bạn kỳ vọng chia thành 2 phần
+-#
+-#     # Đây là một ví dụ kiểm tra đơn giản, bạn có thể bổ sung các kiểm tra khác tùy vào mục đích của bạn.
++import pytest
++from chunking.llm_agentic_chunker import LLMAgenticChunkerv2
++from llms.cohere_llm import CohereLLM
++from constant import COHERE  # Đảm bảo bạn đã có constant COHERE được định nghĩa
+ 
++# Giả sử bạn đã có một API key Cohere hợp lệ
++API_KEY = '9lRawWOiQK35jXEwzXG9Pe1QdC0umabHh6kK0cu4'
+ 
++@pytest.fixture
++def cohere_llm():
++    """Fixture to initialize Cohere LLM."""
++    return CohereLLM(api_key=API_KEY)
++
++@pytest.fixture
++def chunker(cohere_llm):
++    """Fixture to initialize the chunker."""
++    return LLMAgenticChunkerv2(cohere_llm)
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5162279a-34b5-4527-a63d-25272d0354bd\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app.py\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/test/test_api.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/test/test_api.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/test/test_chunking.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/test/test_chunking.py\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2svGav0LUxedSRJlZrAioX55hty\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Python tests.Python tests in test_api.py.executor&quot;: &quot;Run&quot;,\r\n    &quot;Python tests.Python tests in test_chunking.py.executor&quot;: &quot;Run&quot;,\r\n    &quot;Python tests.Python tests in test_pgvector.py.executor&quot;: &quot;Run&quot;,\r\n    &quot;Python.app.executor&quot;: &quot;Run&quot;,\r\n    &quot;Python.chunking_api.executor&quot;: &quot;Run&quot;,\r\n    &quot;Python.db_connection.executor&quot;: &quot;Run&quot;,\r\n    &quot;Python.main.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;D:/Semester_7-Internship/Chatbot_Project/chatbot_project/drop-rag&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Python tests in test_chunking.py\" type=\"tests\" factoryName=\"Autodetect\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"CMC_chatbot\" />\r\n      <option name=\"ENV_FILES\" value=\"\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/test\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"_new_additionalArguments\" value=\"&quot;&quot;\" />\r\n      <option name=\"_new_target\" value=\"&quot;$PROJECT_DIR$/test/test_chunking.py&quot;\" />\r\n      <option name=\"_new_targetType\" value=\"&quot;PATH&quot;\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Python tests.Python tests in test_chunking.py\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-python-sdk-495700d161d3-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.22562.220\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5162279a-34b5-4527-a63d-25272d0354bd\" name=\"Changes\" comment=\"\" />\r\n      <created>1739328701884</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1739328701884</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"master\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 6321811b0c8ea6d33906b56ad45b12f62461ea28)
++++ b/.idea/workspace.xml	(date 1740023285401)
+@@ -6,9 +6,7 @@
+   <component name="ChangeListManager">
+     <list default="true" id="5162279a-34b5-4527-a63d-25272d0354bd" name="Changes" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/test/test_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_api.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/test/test_chunking.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_chunking.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -45,7 +43,7 @@
+     &quot;Python.main.executor&quot;: &quot;Run&quot;,
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;Merging master&quot;,
+     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+     &quot;last_opened_file_path&quot;: &quot;D:/Semester_7-Internship/Chatbot_Project/chatbot_project/drop-rag&quot;,
+     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;

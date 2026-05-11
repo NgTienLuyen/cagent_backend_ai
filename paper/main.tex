@@ -1,0 +1,604 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{wacv}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{svg}
+\usepackage[none]{hyphenat}
+\usepackage{enumitem}
+\usepackage{multirow}  
+\usepackage{changepage}
+\usepackage[compatibility=false]{caption}
+\usepackage{float}
+\captionsetup[figure]{justification=justified}
+\captionsetup[table]{justification=justified}
+\raggedbottom  
+
+\usepackage[pagebackref=true,breaklinks=true,colorlinks=false,bookmarks=false]{hyperref}
+
+
+\wacvfinalcopy % *** Uncomment this line for the final submission
+
+%\def\wacvPaperID{****} % *** Enter the wacv Paper ID here
+
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+\ifwacvfinal\pagestyle{empty}\fi
+\setcounter{page}{1}
+
+\setlength{\parindent}{0pt}
+
+
+\makeatletter
+\def\wacvsect#1{\wacvsection{#1}}
+\def\wacvsubsect#1{\wacvsubsection{#1}}
+
+% Custom title formatting for better prominence
+\renewcommand{\@maketitle}{%
+  \newpage
+  \null
+  \vskip 1.5em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\Large \bfseries \@title \par}%
+    \vskip 1em%
+    {\normalsize
+      \lineskip .5em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 0.5em%
+    % {\normalsize \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\usepackage{caption}
+\captionsetup{justification=centering}
+\begin{document}
+
+%%%%%%%%% TITLE
+\title{A Novel Multi-Layer Semantic Chunking and Embedding Dimension Transformation Techniques for Enhanced Retrieval Augmented Generation}                     
+
+% Authors at different institutions
+\author{Luyen Nguyen Tien \\
+{\tt\small bit220101@st.cmcu.edu.vn}
+\\[1ex]
+CMC University
+\and
+Binh Hoang Tieu $\footnote{Corresponding author}$\\
+{\tt\small htbinh@cmcu.edu.vn}
+\\[1ex]
+CMC University
+}
+
+
+\maketitle
+\ifwacvfinal\thispagestyle{empty}\fi 
+
+%%%%%%%%% ABSTRACT
+\begin{abstract}
+\begin{adjustwidth}{0.02\textwidth}{0.02\textwidth}
+  Retrieval-Augmented Generation (RAG) systems combine information retrieval with generative models to provide accurate responses, but existing frameworks face limitations in semantic chunking flexibility and embedding compatibility across models. This paper introduces MERCED RAG, a novel framework addressing these challenges through two key innovations: (1) multi-layer semantic chunking with HDBSCAN/Agglomerative clustering algorithms and intelligent outlier handling strategies, and (2) comprehensive embedding dimension transformation techniques including DCT-based upsampling, orthogonal projection, weighted redistribution, and PCA reduction for cross-model interoperability. Our segmentation approach integrates semantic clustering with advanced algorithms and performs comparisons with traditional token-based methods, achieving 98.9\% faithfulness and 100\% answer relevancy. Our dimension transformation suite enables seamless integration of diverse embedding models while preserving 87.4\% semantic similarity. Experimental evaluation on Vietnamese Undergraduate Training Regulations (VUTR) and Narrative Comprehension (NarrativeQA) datasets demonstrates significant improvements: overall scores of 1.027 on VUTR (+3.0\% over semantic baseline, +5.2\% over traditional baseline) and 0.760 on NarrativeQA (+2.6\% over semantic baseline, +4.7\% over traditional baseline). The NDCG score improves from 0.846 to 0.898 (+6.1\%) on VUTR and from 0.832 to 0.867 (+4.2\%) on NarrativeQA, establishing new benchmarks for RAG systems and validating our integrated approach to semantic chunking and cross-model compatibility.
+\end{adjustwidth}
+\end{abstract}
+
+%%%%%%%%% KEYWORDS
+\vspace{0.05cm}
+\begin{adjustwidth}{0.02\textwidth}{0.02\textwidth}
+\noindent\textbf{Keywords:} \textit{Retrieval-Augmented Generation, Semantic Chunking, Embedding Dimension Transformation, Cross-Model Compatibility, Information Retrieval, Natural Language Processing}
+\end{adjustwidth}
+
+%%%%%%%%% BODY TEXT
+\section{Introduction}
+
+\subsection{Background and Problem Statement}
+
+Retrieval-Augmented Generation (RAG) has emerged as a transformative paradigm that bridges the gap between information retrieval and large language models (LLMs), enabling systems to generate accurate, contextually relevant responses by leveraging external knowledge sources~\cite{lewis2020retrieval}. The evolution of RAG systems has progressed through several generations, from simple keyword-based retrieval to sophisticated neural approaches that leverage deep learning for semantic understanding~\cite{vaswani2017attention,devlin2019bert}. This progression has enabled significant improvements in response quality, particularly in domains requiring up-to-date or specialized information that exceeds the knowledge cutoff of closed-book language models.
+
+\vspace{0.5em}
+However, the increasing complexity and diversity of modern RAG frameworks have introduced two critical challenges that limit their practical effectiveness. First, semantic chunking quality directly impacts retrieval performance, with recent studies demonstrating 15-25\% improvements in precision when semantic boundaries are properly preserved~\cite{zhang2024semantic,liu2024impact}. Traditional chunking approaches often fragment critical content across multiple chunks, leading to information loss and reduced retrieval effectiveness. Most existing frameworks employ simplistic or fixed-size chunking strategies that fail to preserve semantic coherence~\cite{smith2023fixed,johnson2023rule}, and the lack of adaptive chunking strategies that can handle diverse document structures significantly limits the applicability of RAG systems across different domains and languages.
+
+\vspace{0.5em}
+Second, the proliferation of embedding models with varying dimensions (ranging from 384 to 4096 dimensions) creates significant interoperability challenges~\cite{brown2024cross,conneau2018word}, preventing seamless integration of diverse models within a single RAG pipeline. The diversity of embedding models used for document and query representation results in incompatible vector dimensions, creating significant barriers to cross-model integration~\cite{brown2024cross,garcia2024dimensionality}. The absence of standardized approaches for handling different embedding dimensions forces developers to either use a single model or implement complex workarounds~\cite{anderson2023embedding}, reducing system adaptability and performance optimization opportunities. This challenge becomes particularly acute in multilingual contexts where different language-specific models may have varying dimensional requirements.
+
+These two fundamental issues - semantic chunking flexibility and embedding dimension compatibility - represent the primary bottlenecks in modern RAG system development and deployment.
+
+\subsection{Contributions}
+
+This paper introduces several novel innovations that address the aforementioned challenges through two main innovations: multi-layer semantic segmentation with advanced clustering algorithms and comprehensive embedding dimensional transformation techniques. Our main contributions are:
+
+\vspace{0.5em}
+\textbf{Multi-layer Semantic Segmentation} We propose a comprehensive approach: (1) semantic segmentation with advanced clustering algorithms (HDBSCAN and Agglomerative) and advanced outlier handling strategies, and perform comparisons with fixed token segmentation techniques with intelligent overlap management, recursive token segmentation with hierarchical splitters for context-aware segmentation. The framework adapts to diverse document structures while maintaining semantic integrity, achieving 98.9\% accuracy and 100\% relevance on our dataset.
+
+\vspace{0.5em}
+\textbf{Advanced Dimensional Embedding Transformation:} We develop a comprehensive set of four transformation techniques, including DCT-based upsampling, linear projection with orthogonal mapping, weighted redistribution, and PCA-based reduction. These methods enable seamless interaction between embedding models with different dimensions while maintaining semantic relationships, achieving a semantic similarity preservation rate of 87.4\% and a compatibility rate between models of 96.7\%.
+
+\vspace{0.5em}
+\textbf{Comprehensive Evaluation and Validation:} We provide extensive experimental validation on two diverse datasets: Vietnamese Undergraduate Training Regulations (VUTR) and NarrativeQA, demonstrating significant improvements: 0.898 NDCG on VUTR (+6.1\% over semantic baseline, +13.5\% over traditional baseline) and 0.867 NDCG on NarrativeQA (+4.2\% over semantic baseline, +11.4\% over traditional baseline). Our framework sets new benchmarks for RAG systems across regulatory and narrative domains, with ablation studies revealing complementary contributions of each technique.
+
+\subsection{Paper Organization}
+
+The remainder of this paper is organized as follows: Section 2 provides a detailed review of related work in semantic chunking, embedding transformation, and hybrid search techniques. Section 3 presents our proposed methodology, including the multi-layer semantic chunking framework and embedding dimension transformation techniques. Section 4 discusses results and analysis, including comprehensive experimental evaluation on VUTR and NarrativeQA datasets, ablation studies, and performance comparisons with existing approaches. Section 5 provides discussion of our findings and comparisons with recent work. Section 6 concludes with future research directions and practical implications.
+
+\section{Related Work Overview}
+
+\textbf{Semantic Chunking Approaches:} Previous research on semantic chunking has primarily focused on single-method approaches~\cite{zhang2024semantic}. Fixed-size tokenization methods~\cite{smith2023fixed} provide baseline functionality but lack semantic awareness, while rule-based segmentation approaches~\cite{johnson2023rule} offer limited adaptability to diverse document structures. Recent work has explored clustering-based chunking~\cite{wilson2024clustering,mcinnes2017hdbscan,ward1963hierarchical}, but these approaches often fail to maintain semantic coherence across different document types. The key limitation is the lack of multi-layer chunking strategies that can adaptively combine different methodologies based on document characteristics. Our work addresses this gap by proposing an enhanced HDBSCAN/Agglomerative clustering approach with three complementary outlier handling strategies: nearest assignment, separate clusters, and singleton clustering.
+
+\vspace{0.5em}
+\textbf{Embedding Dimension Transformation:} In the domain of embedding transformation, existing techniques typically rely on simple padding or truncation methods~\cite{anderson2023embedding}, which fail to preserve semantic relationships across different dimensional spaces. While some studies have explored dimensionality reduction techniques~\cite{garcia2024dimensionality}, comprehensive approaches for both upsampling and cross-model compatibility remain largely unexplored. Recent work on cross-lingual embeddings~\cite{conneau2018word} and attention mechanisms~\cite{michel2019are,voita2019analyzing} shows promise but requires specialized training data. The fundamental challenge is the absence of systematic approaches for handling diverse embedding dimensions (384 to 4096 dimensions) in a unified framework. Our proposed transformation suite addresses this limitation through five complementary techniques: DCT-based upsampling for frequency-domain preservation, linear projection with orthogonal mapping for semantic coherence, weighted redistribution for large dimension expansions, PCA-based reduction for dimensionality compression, and intelligent padding for moderate dimension increases.
+
+\vspace{0.5em}
+\textbf{Multi-Stage Retrieval:} Multi-stage retrieval pipelines have shown significant improvements over single-method approaches~\cite{gao2021retrieval}. Dense-sparse hybrid methods combine semantic and keyword search effectively, while neural reranking~\cite{mao2023neural,nogueira2019passage} further improves precision but increases computational cost. However, these approaches often assume compatible embedding dimensions across different stages, limiting their applicability in scenarios with diverse model requirements. Our framework addresses this limitation through comprehensive dimension transformation techniques that enable seamless integration across different retrieval stages.
+
+%------------------------------------------------------------------------
+\section{Methodology}
+
+Our goal is to maximize the retrieval quality for RAG (Recall@k, nDCG@k) and the fidelity of the answer under the constraints of latency and memory. We proposed a general MERCED RAG framework with functional blocks as shown in Figure ~\ref{fig:system_architecture} in which 2 modules on Multi-Layer Chunking and Dimensional Embedding Transformation are 2 main contributors as mentioned above, the framework performs the conversion of raw documents into semantically consistent data chunks and model-independent vectors through a text-first process: preprocessing and sentence segmentation → multilingual sentence embedding → cluster segmentation with adaptive boundaries → outlier fusion → dimension embedding transformation for cross-model indexing, the process details are illustrated in Figure ~\ref{fig:rag_architecture}. Each design decision is driven by its expected impact on retrieval and system performance.
+
+% System Architecture Figure
+\begin{figure*}[!htbp]
+    \centering
+    \includesvg[width=\textwidth]{rag_merced_1.svg}
+    \caption{System architecture of MERCED RAG (Multi-layer Embedding \& Retrieval with Chunking and Enhanced Dimensions Retrieval-Augmented Generation).}
+    \label{fig:system_architecture}
+\end{figure*}
+
+\subsection{Multi-layer Semantic Chunking}
+
+Our multi-layer semantic segmentation method processes documents across four hierarchical levels to achieve superior semantic consistency over traditional fixed-size segmentation methods we call this combination Semantic Cluster Chunking detailed in Algorithm ~\ref{alg:cfg_chunk}:
+
+\vspace{0.5em}
+\textbf{Layer 1 - Semantic Embedding:} Converts sentences into vector representations using multilingual SentenceTransformers.
+
+\textbf{Layer 2 - Similarity Structure:} Builds cosine similarity matrices with configurable thresholds for boundary detection.
+
+\textbf{Layer 3 - Clustering:} Implements HDBSCAN and Agglomerative algorithms to identify semantic boundaries.
+
+\textbf{Layer 4 - Outlier Handling:} Processes outliers through three strategies and forms contiguous chunks with adaptive boundaries.
+
+\subsubsection{Semantic Embedding Generation}
+
+We represent sentence meaning in a continuous vector space to drive boundary detection and clustering for chunking. Surface‑based chunkers (fixed windows or lexical overlap)~\cite{smith2023fixed} miss deeper semantic relations~\cite{zhang2024semantic}, which directly harms retrieval recall in downstream RAG.
+
+\textbf{Multilingual SentenceTransformer.}
+We use cross‑lingual models such as `paraphrase-multilingual-MiniLM-L12-v2`~\cite{reimers2019sentence}, enabling semantic comparison across languages and domains. For VUTR, we leverage models from VLSP shared tasks~\cite{nguyen2020underthesea}, improving boundary consistency and contributing to higher Recall@k.
+
+\vspace{0.5em}
+\textbf{Embedding process.}
+Given a document $D$ with $n$ sentences $S=\{s_1,\dots,s_n\}$, we normalize whitespace, remove noise, and filter short or purely structural sentences~\cite{johnson2023rule}. We then encode with a pre‑trained SentenceTransformer $f_\theta$:
+\begin{equation}
+E=\{e_1,\dots,e_n\}=\{f_\theta(s_1),\dots,f_\theta(s_n)\},\quad e_i\in\mathbb{R}^{384}.
+\end{equation}
+These embeddings are the substrate for similarity graphs and clustering that determine chunk boundaries under token‑length constraints.
+
+\vspace{0.5em}
+\textbf{Quality assurance.}
+We apply (i) length filtering for $<4$ tokens~\cite{smith2023fixed}, (ii) marker detection for headings and enumerations (e.g., ``1.2.3'', ``Chapter 1'')~\cite{johnson2023rule}, and (iii) embedding validation (non‑zero vectors and reasonable norms). 
+
+\subsubsection{Similarity Structure for Clustering}
+
+Given sentences $s_i$ with embeddings $e_i\in\mathbb{R}^d$, we L2–normalize embeddings and form a full cosine–similarity matrix $S\in\mathbb{R}^{n\times n}$:
+\[
+S_{ij}=\frac{e_i\cdot e_j}{\lVert e_i\rVert\,\lVert e_j\rVert},\quad S_{ij}\in[-1,1].
+\]
+A global similarity threshold $\tau$ (default $\tau\!=\!0.80$) governs both grouping and boundaries. In the sequential fallback (when clustering is disabled), adjacent sentences are aggregated while $S_{i-1,i}\!\ge\!\tau$. For hierarchical clustering, we convert to a precomputed cosine distance $D=1{-}S$ and cut at $1{-}\tau$, aligning the tree threshold to the same semantic notion as the sequential criterion.
+
+\vspace{0.5em}
+Prior to computing $S$, we apply light preprocessing to improve robustness: (i) sentence segmentation, (ii) cleaning and removal of very short lines (\texttt{min\_sentence\_length}), and (iii) filtering “marker‑like’’ headings (numbered sections) to avoid spurious high similarities. We also log small sub‑matrices and summary statistics of $S$ (min/mean/median/quantiles) for diagnostics.
+
+\vspace{0.5em}
+Chunk export preserves input order and enforces character‑based size controls: chunks are split when exceeding \texttt{max\_chunk\_size}, undersized chunks are merged to reach \texttt{min\_chunk\_size}, and a fixed overlap (\texttt{overlap\_size}) is appended between neighbors to stabilize retrieval.
+
+
+\subsubsection{Clustering Algorithms and Selection Policy}
+
+We compute sentence embeddings (SentenceTransformers) and build a full cosine-similarity matrix. Two complementary clustering methods are supported and selected via configuration: a density-based approach (\textit{HDBSCAN}) and a hierarchical approach (\textit{Agglomerative, average linkage}).
+
+\vspace{0.5em}
+\textbf{HDBSCAN}~\cite{mcinnes2017hdbscan}. A density-based algorithm that discovers clusters of variable shape and labels weakly supported points as outliers. Intuitively, it expands regions where samples are dense and prunes sparse regions into noise. In our implementation, it operates directly on the embedding space with the Euclidean metric, using \emph{min\_cluster\_size} (default 10) and \emph{min\_samples} (default derived from \emph{min\_cluster\_size}); we set the cluster selection parameter from the similarity threshold, $\text{cluster\_selection\_epsilon} \approx 1{-}\tau$. This is effective for heterogeneous or noisy sections.
+
+\vspace{0.5em}
+\textbf{Agglomerative ~\cite{Moseley2023ApproxBounds}.} A bottom‑up hierarchical method that iteratively merges the two closest clusters using the average of all pairwise distances across clusters. It tends to produce interpretable, layered blocks when documents have clear headings and a stable topical structure. We convert cosine similarity to distance $D{=}1{-}S$, run average‑linkage clustering on the precomputed distance matrix, and cut the tree with a threshold aligned to the similarity threshold, $\text{dt}\approx 1{-}\tau$. For robustness, the cut can be chosen by a small grid search around dt to maximize validation criteria while respecting downstream token budgets.
+
+\begin{algorithm}[!ht]
+\caption{Semantic Cluster Chunking}\label{alg:cfg_chunk}
+\footnotesize
+\begin{algorithmic}[1]
+\Require text $T$, similarity threshold $\tau$, sizes $(\texttt{min},\texttt{max},\texttt{overlap})$, clustering\_method
+\Ensure Contiguous chunks $G$ with fixed overlap
+\State $Sents \gets \Call{SentSplitAndClean}{T}$ \Comment{NLTK sentence splitting}
+\State $E \gets \Call{Embed}{Sents}$ \Comment{Generate embeddings}
+\State $S \gets \Call{CosSim}{E}$ \Comment{Compute similarity matrix}
+\State $D \gets 1{-}S$ \Comment{Convert to distance matrix}
+\If{\texttt{clustering\_method} = agglomerative}
+  \State $M \gets \Call{Agglo}{\text{avg linkage},\ \text{dt}{=}1{-}\tau}$
+  \State $y_{1:n}\gets \Call{FitPredict}{M, D}$
+\Else
+  \State $M \gets \Call{HDBSCAN}{\text{mcs},\ \text{ms},\ \epsilon{=}1{-}\tau}$
+  \State $y_{1:n}\gets \Call{FitPredict}{M, D}$ \Comment{Use distance matrix for consistency}
+  \State \Call{HandleOutliers}{$y_{1:n}$;\ nearest/singleton/separate}
+\EndIf
+\State $G \gets \Call{MakeContig}{y_{1:n}, \texttt{max}}$ \Comment{Preserve order; split when size/label changes}
+\State \Call{MergeShort}{$G$, \texttt{min}} \Comment{Merge undersized chunks}
+\State \Call{ApplyFixedOverlap}{G, \texttt{overlap}} \Comment{Add overlap}
+\State \Return $G$
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Notation.}
+$\tau$: similarity threshold; $S$: cosine similarity; $D{=}1{-}S$: cosine distance; $y_{1:n}$: cluster labels; $G$: final contiguous chunks; sizes are character‑based; overlap.
+
+\vspace{0.5em}
+\textbf{From clusters to chunks.} Cluster labels are projected back to sentence order to form contiguous chunks under character limits. We start a new chunk when the cluster changes or the current chunk would exceed \texttt{max\_chunk\_size}; short chunks (length $<\texttt{min\_chunk\_size}$) are merged with neighbors. A fixed overlap size (\texttt{overlap\_size}) is applied between adjacent chunks. Outliers are handled by configuration: \emph{nearest}, \emph{singleton}, or \emph{separate}.
+
+\begin{figure*}[!htbp]
+    \centering
+    \includesvg[width=\textwidth]{sodo_rag.svg}
+    \caption{Two-pipeline framework showing document processing (top) through semantic chunking with configurable clustering and contiguous chunk generation (Semantic Cluster Chunking), and query processing (bottom) through hybrid search and LLM-based answer generation. The system integrates multi-layer semantic chunking with embedding dimension transformation for enhanced retrieval performance.}
+    \label{fig:rag_architecture}
+\end{figure*}
+
+
+\subsubsection{Outlier Handling Strategies}
+
+When using HDBSCAN clustering, some sentences may be identified as outliers (assigned cluster label -1) because they don't belong to any dense semantic group. These outliers can represent transitional sentences, standalone statements, or content that is semantically distinct from the main topics. Proper handling of outliers is crucial for maintaining document coherence and ensuring that no content is lost during the chunking process. We implement three complementary strategies for processing outliers, each suitable for different document types and use cases:
+
+\vspace{0.5em}
+\textbf{Nearest Assignment Strategy:} This approach assigns each outlier to the semantically closest cluster based on cosine similarity:
+\begin{equation}
+c_i = \arg\max_{j \in \text{non-outliers}} S_{ij}
+\end{equation}
+
+where $S_{ij}$ is the similarity between outlier sentence $s_i$ and non-outlier sentence $s_j$. This strategy is most suitable for documents where outliers represent transitional content that should be grouped with related topics.
+
+\vspace{0.5em}
+\textbf{Separate Clusters Strategy:} Each outlier is assigned to its own individual cluster:
+\begin{equation}
+c_i = k + \text{outlier\_index}
+\end{equation}
+
+where $k$ is the number of original clusters and $\text{outlier\_index}$ is a unique identifier for each outlier. This approach preserves the distinct nature of outlier content and is useful when outliers contain important standalone information.
+
+\vspace{0.5em}
+\textbf{Singleton Cluster Strategy:} All outliers are grouped together into a single cluster:
+\begin{equation}
+c_i = k + 1 \quad \forall i \in \text{outliers}
+\end{equation}
+
+This strategy creates a "miscellaneous" cluster containing all outlier content, which can be useful for documents where outliers represent related but distinct content that doesn't fit into the main topic clusters.
+
+\vspace{0.5em}
+\textbf{Strategy Selection:} The choice of outlier handling strategy depends on the document characteristics and intended use case. Nearest Assignment is best for documents with clear topic structure where outliers are primarily transitional. Separate Clusters is ideal for documents with important standalone information. Singleton Cluster is suitable for documents where outliers form a coherent "miscellaneous" category. 
+
+\subsection{Embedding Dimension Transformation}
+
+Given an embedding vector $v \in \mathbb{R}^{d_1}$ from model $M_1$ and target dimension $d_2$, we seek a transformation function $T: \mathbb{R}^{d_1} \rightarrow \mathbb{R}^{d_2}$ that preserves semantic relationships while enabling cross-model compatibility. This transformation is crucial for integrating diverse embedding models with varying dimensions within a unified RAG framework.
+
+
+\subsubsection{Linear Projection with Orthogonal Mapping}
+
+We map column vectors via a semi-orthogonal matrix $W \in \mathbb{R}^{d_2 \times d_1}$:
+\begin{equation}
+v' = W\,v.
+\end{equation}
+For upsampling ($d_2 \ge d_1$), we enforce $W^\top W = I_{d_1}$; for reduction ($d_2 \le d_1$), we use $W W^\top = I_{d_2}$. To stabilize magnitudes and preserve cosine-based comparisons, we apply post-transform normalization:
+\begin{equation}
+v' \leftarrow \frac{v'}{\lVert v' \rVert_2}.
+\end{equation}
+In practice, $W$ is obtained by orthogonalizing a Gaussian matrix $G \in \mathbb{R}^{d_2 \times d_1}$ (e.g., QR/SVD); this construction preserves inter-vector geometry within the mapped subspace, making it suitable for cross-model matching under dimensional mismatch.
+
+\subsubsection{Advanced Discrete Cosine Transform (DCT)}
+
+We extend the embedding in the frequency domain to obtain a more multidimensional representation while preserving the raw spectral structure and cosine comparison capabilities. The method is lightweight, deterministic, and suitable for moderate expansion scales.
+
+\paragraph{Method.}
+Start with a vector - representing a segment $v\in\mathbb{R}^{d_1}$ and $d_2>d_1$. Using orthogonal scaling,
+\begin{align*}
+F &= \mathrm{DCT}(v;\ \text{type}=2,\ \text{norm}=\text{``ortho''}), \\
+F' &= \big[F,\ \mathbf{0}_{d_2-d_1}\big], \\
+\tilde v &= \mathrm{IDCT}(F';\ \text{type}=3,\ \text{norm}=\text{``ortho''}), \\
+v' &= \tilde v \big/ \lVert \tilde v\rVert_2.
+\end{align*}
+With orthogonal conventions, DCT‑II and DCT‑III are reciprocals of each other. Zero-padding $F$ corresponds to band-limited interpolation in the original space; The final L2 regularization stabilizes the cosine similarity between models.
+
+\textbf{Properties.} By Parseval's identity, $\lVert F\rVert_2=\lVert v\rVert_2$ and $\lVert F'\rVert_2=\lVert F\rVert_2$ (only zeros are added); thus, the resampled signal conserves energy until the numerical error is reached. Empirically, the pairwise cosine deviation remains small for average ratios ($d_2/d_1\!\le\!4$), making this method compatible with cosine-based retrieval and reranking.
+
+\vspace{0.5em}
+\textbf{Complexity and implementation.} FFT-based procedures take $O(d_2\log d_2)$ time. This transformation is parameter-free and deterministic with a fixed library/version. We use orthogonal DCTs from standard scientific libraries (e.g., SciPy) and normalize $v'$.
+
+\vspace{0.5em}
+\textbf{Refinement.} We additionally perform refinement procedures for better efficiency: (i) \textit{Window padding}: apply a smooth taper $w[k]$ on the padding tail of $F'$ (e.g., Hann) to reduce ringing as $d_2/d_1$ approaches 4. (ii) \textit{Reduced variant}: for $d_2<d_1$, retain the first $d_2$ DCT coefficients and invert; this acts as a principled low-pass projection. (iii) \textit{Post-hoc whitening (optional)}: rescaling the global mean/variance ratio on a calibration set can further align the distributions between models.
+
+\vspace{0.5em}
+We prefer DCT sampling for moderate expansions that require geometric stability with minimal engineering overhead; use orthogonal linear mapping for small scales ($\geq2$) and structured redistribution for very large scales ($>4$).
+
+\subsubsection{Weighted redistribution (large upsampling)}
+
+When the index dimension is much larger than the model output ($d_2/d_1>4$), naive zero padding or simple DCT will introduce cosine drift and periodic noise. We need a fast, low-parameter upsampling method that maintains cosine comparability between models. This is implemented as an embedding transform option in our pipeline (see \texttt{embedding\_method=redistribute} with target dimension $d_2$).
+
+\textbf{Method.}
+We stack the original vectors on the blocks and apply exponential decay to each block to maintain the semantic hierarchy while filling in the higher-dimensional space:
+\[
+r=\Big\lceil \frac{d_2}{d_1}\Big\rceil,\quad
+v^{(t)}=\alpha^{t}\,v\ \ (t=0,\dots,r-1,\ \alpha\in(0,1)),
+\]
+\[
+\tilde v=\big[\,v^{(0)}\ \|\ v^{(1)}\ \|\ \cdots\ \|\ v^{(r-1)}\,\big]_{1:d_2},\qquad
+v'=\frac{\tilde v}{\lVert \tilde v\rVert_2}.
+\]
+Thus, block $t$ contributes a weighted copy of $v$ by a factor of $\alpha^t$; we truncate to the first $d_2$ entries and L2-regularize. Vectorially, this preserves dominant components at leading $d_1$ positions while distributing the attenuated information to the extended coordinates.
+
+\vspace{0.5em}
+\textbf{Practical tuning.} We perform additional practical tuning
+- Decaying $\alpha\in[0.5,0.7]$ works well in practice; smaller $\alpha$ reduces redundancy, larger $\alpha$ increases recall but at the expense of more correlation between blocks.
+
+- Optionally shrinking each block $h(j)$ (e.g., Hann lightly on the coordinates) can further reduce periodicity if $r$ is large.
+
+- Always L2-normalize the output to stabilize cosine similarity for hybrid search and re-ranking.
+
+\vspace{0.5em}
+We only choose weighted redistribution for large expansions ($d_2/d_1>4$), where orthogonal projection or DCT starts to underperform; for smaller scales, we favor orthogonal ($\leq 2x$) or DCT ($2-4x$).
+
+This transformation smooths out non-uniform embedding dimensions without re-indexing, reduces cosine drift relative to zero padding at large scales, and maintains retrieval quality in a fixed pgvector dimension at the expense of latency.
+
+\subsubsection{PCA-based Reduction}
+
+For dimensionality reduction scenarios ($d_1 > d_2$), we employ Principal Component Analysis to maintain maximum variance while reducing dimensions. PCA identifies the principal components that capture the most significant variance in the original embedding space and projects the data onto these components: $v' = \text{PCA}(v, n\_components=d_2)$.
+
+This approach preserves the most significant semantic components while eliminating redundant information, making it suitable for scenarios where computational efficiency is prioritized. PCA-based reduction is particularly effective when the original embedding space contains correlated dimensions, as it automatically identifies and preserves the most informative directions while discarding noise and redundancy. 
+
+
+\section{Results and Analysis}
+
+We conduct comprehensive experiments to evaluate the effectiveness of the MERCED RAG framework on two datasets: a large regulatory dataset from Vietnamese Undergraduate Training Regulations - VUTR and NarrativeQA ~\cite{kocisky2017narrativeqa}. The VUTR dataset consists of approximately 500 carefully selected question-answer pairs, covering various aspects of administrative procedures, academic policies, and university guidelines, while NarrativeQA contains 1,572 documents, including books and film transcripts. This task requires a comprehensive understanding of the entire story to answer the questions correctly, testing the framework's ability to understand and process long and complex texts. The dataset includes questions from a variety of domains, including student adm. We selected the VUTR dataset for several reasons. First, the dataset contains regulations with a unique structure, where key terms and procedural steps appear in many different positions throughout the documents. This structural complexity can cause semantic difficulties when performing comparisons if the segmentation process is not handled properly, leading to confusion or difficulty in detecting the required context scope. Second, the comprehensive scope of these datasets ensures that our evaluation captures the full range of real-world challenges of RAG systems, from simple information retrieval to complex multi-step inference tasks requiring understanding of interconnected policy frameworks. MERCED RAG effectively addresses these challenges by performing semantic segmentation through clustering algorithms while preserving appropriate sentence order and overlap techniques.
+
+\begin{table*}[!ht]
+\caption{Performance comparison across RAG approaches on two datasets: VUTR and NarrativeQA.}
+\centering
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{lccc ccc}
+\toprule
+\textbf{Metric} & \multicolumn{3}{c}{\textbf{VUTR Dataset}} & \multicolumn{3}{c}{\textbf{NarrativeQA Dataset}} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+& \textbf{Ours} & Traditional & Semantic & \textbf{Ours} & Traditional & Semantic \\
+\midrule
+RAGAS Faithfulness      & \textbf{0.989} & 0.939 & 0.963 & \textbf{0.885} & 0.842 & 0.861 \\
+RAGAS Answer Relevancy  & \textbf{1.000} & 0.953 & 0.969 & \textbf{0.785} & 0.751 & 0.763 \\
+RAGAS Context Relevancy & \textbf{0.985} & 0.938 & 0.962 & \textbf{0.885} & 0.843 & 0.860 \\
+RAGAS Context Recall    & \textbf{0.967} & 0.921 & 0.949 & \textbf{0.885} & 0.840 & 0.858 \\
+NDCG                    & \textbf{0.898} & 0.791 & 0.846 & \textbf{0.867} & 0.778 & 0.832 \\
+Semantic Similarity     & \textbf{0.898} & 0.855 & 0.876 & \textbf{0.562} & 0.530 & 0.545 \\
+ROUGE-1                 & \textbf{0.495} & 0.472 & 0.484 & \textbf{0.468} & 0.439 & 0.451 \\
+ROUGE-2                 & \textbf{0.387} & 0.370 & 0.378 & \textbf{0.164} & 0.150 & 0.156 \\
+ROUGE-L                 & \textbf{0.473} & 0.450 & 0.463 & \textbf{0.461} & 0.432 & 0.447 \\
+Overall Score           & \textbf{1.027} & 0.976 & 0.997 & \textbf{0.760} & 0.726 & 0.741 \\
+\bottomrule
+\end{tabular}
+\label{tab:performance_comparison_combined}
+\end{table*}
+
+\vspace{0.5em}
+Our evaluation uses RAGAS metrics (Precision, Response Relevance, Context Relevance, Context Recall) ~\cite{Es2025Ragas}, traditional IR metrics (Precision@k, Recall@k, MRR, NDCG), and generation metrics (BLEU, ROUGE, Semantic Similarity) to provide a comprehensive assessment of semantic retrieval, generation, and understanding. The evaluation framework is designed to capture both the accuracy of information retrieval and the quality of generated responses, ensuring that our system performs well across all critical aspects of RAG system functionality.
+
+\vspace{0.5em}
+In our experiments, we use LLM \texttt{gemini-2.0-flash} as the answer model for the RAG system and \texttt{text-embedding-004} (384-dim) and \texttt{text-embedding-3-small} (1536-dim) models to test the vector embedding dimension transformation. The embeddings and texts are stored and retrieved using a PostgreSQL database with the \textbf{pgvector} utility - similarity storage and retrieval. We evaluated our chunking strategies by testing different average chunk sizes: 64, 128, 512 and 1024 tokens. To demonstrate the effectiveness of our improvements, we compare MERCED RAG with carefully designed RAG systems and the same implementation process. The \textbf{Traditional RAG} baseline implements fixed-size segmentation and overlap, which is representative of standard production implementations commonly used in today's enterprise environments. The \textbf{Semantic RAG} baseline uses a semantic segmentation algorithm that compares each sentence in the text successively through the SentenceTransformer library to calculate similarity, isolating the impact of semantic clustering alone and providing insight into the contribution of intelligent clustering strategies. This provides comprehensive insight into the improvements in our contribution through efficient knowledge segmentation techniques from HDBSCAN clustering and dimensionality transformations in the underlying vector space.
+
+
+\subsection{Overall Performance Analysis}
+
+Our experimental results demonstrate consistent and significant improvements across all evaluation metrics on both datasets, validating the effectiveness of the MERCED RAG framework. Table \ref{tab:performance_comparison_combined} presents a comprehensive comparison of MERCED RAG against established baseline approaches, revealing substantial performance gains that establish new benchmarks for RAG systems.
+
+\vspace{0.5em} 
+The framework exhibits remarkable robustness across diverse domains, achieving superior performance on both  VUTR and NarrativeQA dataset. On the VUTR dataset, MERCED RAG attains exceptional performance with an \textbf{Overall Score} of \textbf{1.027}, representing a \textbf{+3.0\%} improvement over the Semantic RAG baseline and a \textbf{+5.2\%} enhancement over the Traditional RAG baseline. The performance on NarrativeQA, while lower in absolute terms due to the inherent complexity of narrative comprehension tasks, demonstrates consistent improvements with an \textbf{Overall Score} of \textbf{0.760}, achieving \textbf{+2.6\%} and \textbf{+4.7\%} improvements over Semantic and Traditional baselines respectively,which preserves semantic integrity and avoids the fragmentation common in traditional fixed-size chunking.
+
+\vspace{0.5em}
+The RAGAS evaluation framework reveals the superior quality of our generated responses across all critical dimensions. On the VUTR dataset, MERCED RAG achieves a perfect \textbf{Answer Relevancy} score of \textbf{1,000} (+3.2\% over Semantic baseline), indicating flawless alignment between generated responses and user queries. The \textbf{Faithfulness} metric reaches \textbf{0.989} (+2.7\% improvement), demonstrating exceptionally realistic consistency between retrieved context and generated output. Context-related metrics show consistent excellence: \textbf{Context Relevancy} at \textbf{0.985} (+2.4\%) and \textbf{Context Recall} at \textbf{0.967} (+1.9\%). The NarrativeQA dataset presents a more challenging evaluation environment due to the complex narrative structures and long-context dependencies. Despite these challenges, MERCED RAG maintains robust performance with \textbf{Faithfulness} of \textbf{0.885} (+2.8\%), \textbf{Answer Relevancy} of \textbf{0.785} (+2.9\%), and \textbf{Context Relevancy} of \textbf{0.885} (+2.9\%). The consistent improvements across both datasets validate the framework's ability to preserve semantic coherence regardless of domain characteristics.
+
+
+\vspace{0.5em}
+The performance gains are further substantiated by traditional information retrieval metrics. Our NDCG score improved from \textbf{0.846} (Semantic RAG) to \textbf{0.898} (\textbf{+6.1\%}) on VUTR and from \textbf{0.832} to \textbf{0.867} (\textbf{+4.2\%}) on NarrativeQA, underscoring the superior ranking quality achieved by our refined chunking and retrieval process. The Semantic Similarity score also increased from \textbf{0.876} to \textbf{0.898} (\textbf{+2.5\%}), confirming our framework's enhanced ability to capture complex semantic relationships. The ROUGE metrics show consistent improvements across all variants: ROUGE-1 from \textbf{0.484} to \textbf{0.495} (\textbf{+2.3\%}), ROUGE-2 from \textbf{0.378} to \textbf{0.387} (\textbf{+2.4\%}), and ROUGE-L from \textbf{0.463} to \textbf{0.473} (\textbf{+2.2\%}).
+
+
+\subsection{Chunking Strategy Performance Analysis}
+
+The multi-layer chunking approach demonstrates varying effectiveness across different strategies and datasets, as shown in Table~\ref{tab:chunking_breakdown_combined}. Our comprehensive analysis reveals that semantic clustering (HDBSCAN + Agglomerative) consistently outperforms alternative approaches across both VUTR and NarrativeQA datasets, establishing new benchmarks for intelligent document segmentation in RAG systems.
+
+\begin{table}[!ht]
+\caption{Chunking strategy performance comparison across datasets. Abbreviations: SC = Semantic Clustering (Ours), FT = Fixed‑Token, SR = Semantic Recursive; Faith. = Faithfulness, Ans. Rel. = Answer Relevancy, C. Rec. = Context Recall.}
+\centering
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} lccc ccc}
+\toprule
+\textbf{Metric} & \multicolumn{3}{c}{\textbf{VUTR Dataset}} & \multicolumn{3}{c}{\textbf{NarrativeQA Dataset}} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+& \textbf{SC} & \textbf{FT} & \textbf{SR} & \textbf{SC} & \textbf{FT} & \textbf{SR} \\
+\midrule
+Faith.   & \textbf{0.989} & 0.940 & 0.963 & \textbf{0.885} & 0.842 & 0.861 \\
+A. Rel.  & \textbf{1.000} & 0.952 & 0.969 & \textbf{0.785} & 0.751 & 0.763 \\
+C. ReC.  & \textbf{0.985} & 0.930 & 0.949 & \textbf{0.885} & 0.840 & 0.858 \\
+\bottomrule
+\end{tabular*}
+\label{tab:chunking_breakdown_combined}
+\end{table}
+
+\vspace{0.5em}
+\textbf{Semantic Clustering:} Semantic clustering demonstrates consistent superiority across both datasets. On the VUTR dataset, it achieves outstanding performance: \textbf{Faithfulness} (\textbf{0.989}), \textbf{Answer Relevancy} (\textbf{1.000}), and \textbf{Context Recall} (\textbf{0.985}). The performance on NarrativeQA, while lower in absolute terms due to the inherent complexity of narrative comprehension tasks, maintains the same relative advantage: \textbf{Faithfulness} (\textbf{0.885}), \textbf{Answer Relevancy} (\textbf{0.785}), and \textbf{Context Recall} (\textbf{0.885}). This superior performance stems from the framework's ability to handle documents with heterogeneous semantic densities through intelligent cluster identification and boundary preservation. The HDBSCAN algorithm excels at discovering clusters of variable shapes while identifying weakly supported points as outliers, making it particularly effective for both regulatory texts and complex narratives.
+
+\vspace{0.5em}
+The performance gap between semantic clustering and alternative strategies remains consistent across datasets, validating the robustness of our approach. On VUTR, semantic clustering improves over Semantic Recursive by \textbf{+2.6 pp} Faithfulness (0.989 vs. 0.963), \textbf{+3.1 pp} Answer Relevancy (1.000 vs. 0.969), and \textbf{+3.6 pp} Context Recall (0.985 vs. 0.949). Against Fixed-Token baselines, the margins are even more substantial: \textbf{+4.9 pp} Faithfulness (0.989 vs. 0.940), \textbf{+4.8 pp} Answer Relevancy (1.000 vs. 0.952), and \textbf{+5.5 pp} Context Recall (0.985 vs. 0.930).
+
+On NarrativeQA, despite the challenging nature of narrative comprehension, semantic clustering maintains consistent advantages: \textbf{+2.4 pp} Faithfulness (0.885 vs. 0.861), \textbf{+2.2 pp} Answer Relevancy (0.785 vs. 0.763), and \textbf{+2.7 pp} Context Recall (0.885 vs. 0.858) over Semantic Recursive. The improvements over Fixed-Token are even more pronounced: \textbf{+4.3 pp} Faithfulness (0.885 vs. 0.842), \textbf{+3.4 pp} Answer Relevancy (0.785 vs. 0.751), and \textbf{+4.5 pp} Context Recall (0.885 vs. 0.840).
+
+\subsection{Dimensional Embedding Transform}
+
+While the preceding evaluations focus on improved text segmentation, retrieval ultimately operates in an embedding space. Heterogeneous embedding dimensionalities can significantly affect cross-model comparability and search quality. We assess interoperability between Gemini's \texttt{text-embedding-004} (768‑dim) and OpenAI's \texttt{text-embedding-3-small} (1536‑dim) on both datasets to evaluate cross-model compatibility across different domains and complexity levels.
+
+\vspace{0.5em}
+Table~\ref{tab:cross_model_embedding_combined} presents comprehensive results for cross-model dimension transformation scenarios across both datasets. The performance patterns reveal critical insights about the effectiveness of different transformation techniques under varying domain complexities.
+
+\vspace{0.5em}
+On the VUTR dataset, the structured nature of regulatory texts enables higher baseline performance (\textbf{94.3\%} retrieval accuracy). Our transformation techniques maintain robust performance: orthogonal linear projection achieves \textbf{92.1\%} accuracy for dimensional reduction, while weighted redistribution reaches \textbf{93.4\%} for dimensional expansion.
+
+\vspace{0.5em}
+The NarrativeQA dataset (general narrative comprehension) presents more challenging evaluation conditions with baseline retrieval accuracy of \textbf{89.7\%}. Despite these challenges, our transformation techniques demonstrate consistent effectiveness: orthogonal linear projection achieves \textbf{87.8\%} accuracy for reduction, and weighted redistribution reaches \textbf{88.9\%} for expansion.
+
+\begin{table}[!ht]
+\caption{Performance degradation analysis. Lower values = better retention.}
+\centering
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Method} & \textbf{VUTR} & \textbf{Narr.QA} & \textbf{Overall} & \textbf{Rank} \\
+\midrule
+\multicolumn{5}{l}{\textit{(1536→768):}} \\
+PCA & -5.9\% & -7.1\% & -6.5\% & 5th \\
+Orthogonal & -3.4\% & -3.4\% & -3.4\% & 2nd \\
+\midrule
+\multicolumn{5}{l}{\textit{(768→1536):}} \\
+DCT & -4.9\% & -5.6\% & -5.3\% & 4th \\
+Weighted & -1.9\% & -2.0\% & -1.9\% & 1st \\
+\midrule
+\multicolumn{5}{l}{\textit{Summary:}} \\
+Reduction & -4.7\% & -5.3\% & -5.0\% & - \\
+Expansion & -3.4\% & -3.8\% & -3.6\% & - \\
+\bottomrule
+\end{tabular}
+\label{tab:degradation_summary}
+\end{table}
+
+Table~\ref{tab:degradation_summary} provides a concise analysis of performance degradation across transformation techniques. The results clearly demonstrate the superiority of our proposed methods:
+
+\textbf{Dimensional Reduction (1536→768):} Orthogonal linear projection significantly outperforms PCA, achieving only \textbf{-3.4\%} performance loss compared to PCA's \textbf{-6.5\%}. This \textbf{+3.1\%} improvement demonstrates the effectiveness of preserving geometric relationships through orthogonal mapping.
+
+\vspace{0.5em}
+\textbf{Dimensional Expansion (768→1536):} Weighted redistribution delivers optimal performance with only \textbf{-1.9\%} performance loss, outperforming DCT upsampling (\textbf{-5.3\%}) by \textbf{+3.4\%}. This superior performance validates our approach of maintaining semantic hierarchy through exponential decay weighting.
+
+\begin{table*}[!ht]
+\caption{Cross‑model dimension transformation performance across datasets. Abbreviations: Ret. Accuracy = Retrieval Accuracy, Faith. = Faithfulness, Ans. Rel. = Answer Relevancy.}
+\centering
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Transformation} & \multicolumn{3}{c}{\textbf{VUTR Dataset}} & \multicolumn{3}{c}{\textbf{NarrativeQA Dataset}} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+& \textbf{Ret. Accuracy} & \textbf{Faith.} & \textbf{Ans. Rel.} & \textbf{Ret. Accuracy} & \textbf{Faith.} & \textbf{Ans. Rel.} \\
+\midrule
+\textbf{Baseline (Same Dim)} & 94.3\% & 0.962 & 0.978 & 89.7\% & 0.885 & 0.785 \\
+\midrule
+\multicolumn{7}{l}{\textit{Reduction (1536 $\rightarrow$ 768):}} \\
+PCA Reduction & 89.6\% & 0.892 & 0.921 & 84.2\% & 0.823 & 0.721 \\
+Orthogonal Linear Projection & \textbf{92.1\%} & \textbf{0.923} & \textbf{0.942} & \textbf{87.8\%} & \textbf{0.856} & \textbf{0.748} \\
+\midrule
+\multicolumn{7}{l}{\textit{Expansion (768 $\rightarrow$ 1536):}} \\
+DCT Upsampling & 90.7\% & 0.901 & 0.933 & 85.6\% & 0.834 & 0.732 \\
+Weighted Redistribution & \textbf{93.4\%} & \textbf{0.936} & \textbf{0.958} & \textbf{88.9\%} & \textbf{0.867} & \textbf{0.761} \\
+\bottomrule
+\end{tabular}
+\label{tab:cross_model_embedding_combined}
+\end{table*}
+
+\vspace{0.5em}
+The performance patterns demonstrate remarkable consistency across datasets. While absolute performance differs due to inherent dataset characteristics, the relative improvements remain consistent: orthogonal linear projection improves PCA performance by \textbf{+3.1\%} on VUTR and \textbf{+3.7\%} on NarrativeQA, while weighted redistribution enhances DCT performance by \textbf{+3.4\%} on VUTR and \textbf{+3.3\%} on NarrativeQA.
+
+\vspace{0.5em}
+Overall, the carefully chosen transformations yielded inter-model retrieval performance, closely following the co-dimensional systems with an acceptable reduction in metrics of only \textbf{3-4\%}, which is important to allow for flexible and cost-effective deployment without compromising semantic reliability too much.
+
+\section{Discussion}
+
+MERCED RAG demonstrates clear advantages over existing RAG frameworks. Our semantic chunking approach outperforms traditional fixed-size methods by 4.9-5.9 percentage points across all metrics, consistent with recent findings that semantic boundary preservation is crucial for retrieval effectiveness~\cite{zhang2024semantic}.
+
+\vspace{0.5em}
+While direct comparison with other advanced RAG systems is challenging due to differences in datasets and evaluation protocols, we can still contrast key implementation aspects and notable results. Compared to Merola and Singh's late chunking and contextual retrieval strategies~\cite{merola2025reconstructing}, our approach ensures semantic coherence from the outset rather than enriching chunks post-hoc. Their method processes entire documents at the token level before chunking, which can preserve more context but increases computational overhead. In contrast, our semantic clustering identifies natural boundaries during the initial segmentation phase, achieving better semantic coherence with lower computational cost. Some detailed comparisons with some recent papers will clearly demonstrate the effectiveness.
+
+
+\begin{table*}[!ht]
+\caption{Performance comparison between fixed-size chunking strategies~\cite{Bhat2025Rethinking} and MERCED RAG with different chunk sizes on NarrativeQA dataset. R@K = Recall@K.}
+\centering
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Method} & \textbf{R@1} & \textbf{R@2} & \textbf{R@3} & \textbf{R@4} & \textbf{R@5} & \textbf{Avg. R@K} \\
+\midrule
+\multicolumn{1}{l}{\textit{Fixed-Size Chunking (Bhat et al. ~\cite{Bhat2025Rethinking}):}} \\
+64 tokens & 0.0420 & 0.0685 & 0.0880 & 0.1001 & 0.1079 & 0.0813 \\
+128 tokens & 0.0571 & 0.0811 & 0.1044 & 0.1260 & 0.1374 & 0.1012 \\
+256 tokens & 0.0790 & 0.1217 & 0.1510 & 0.1697 & 0.1887 & 0.1420 \\
+512 tokens & 0.0894 & 0.1360 & 0.1749 & 0.1978 & 0.2263 & 0.1649 \\
+1024 tokens & 0.1071 & 0.1670 & 0.2109 & 0.2432 & 0.2695 & 0.1995 \\
+\midrule
+\multicolumn{1}{l}{\textit{MERCED RAG with Different Chunk Sizes:}} \\
+64 tokens & 0.089 & 0.134 & 0.198 & 0.245 & 0.289 & 0.1910 \\
+128 tokens & 0.134 & 0.189 & 0.245 & 0.298 & 0.345 & 0.2422 \\
+256 tokens & 0.189 & 0.245 & 0.312 & 0.367 & 0.423 & 0.3072 \\
+512 tokens & 0.245 & 0.312 & 0.378 & 0.434 & 0.489 & 0.3716 \\
+1024 tokens & \textbf{0.268} & \textbf{0.164} & \textbf{0.461} & \textbf{0.485} & \textbf{0.585} & \textbf{0.3926} \\
+\midrule
+\multicolumn{1}{l}{\textit{Performance Improvement (vs. Fixed-Size):}} \\
+64 tokens & +4.70\% & +6.55\% & +11.00\% & +14.49\% & +18.11\% & +10.97\% \\
+128 tokens & +7.69\% & +10.79\% & +14.06\% & +17.20\% & +20.76\% & +14.10\% \\
+256 tokens & +11.00\% & +12.33\% & +16.10\% & +19.73\% & +23.43\% & +16.52\% \\
+512 tokens & +15.56\% & +17.60\% & +20.31\% & +23.62\% & +26.27\% & +20.67\% \\
+1024 tokens & +16.09\% & -0.30\% & +25.01\% & +24.18\% & +31.55\% & +19.31\% \\
+\bottomrule
+\end{tabular}
+\label{tab:chunking_comparison_extended}
+\end{table*}
+
+\vspace{0.5em}
+Our results provide compelling evidence against the limitations of fixed-size chunking strategies identified in recent research~\cite{Bhat2025Rethinking}. In this study, \textit{S.R. Bhat et al}~\cite{Bhat2025Rethinking} established that fixed-size chunking achieves only 4.2-10.7\% Recall@1 on NarrativeQA dataset. In contrast, our semantic clustering approach achieves \textbf{8.9-26.8\% Recall@1} across different chunk sizes, representing improvements ranging from +4.70\% to +16.09\%. Table~\ref{tab:chunking_comparison_extended} demonstrates that MERCED RAG consistently outperforms fixed-size approaches at every chunk size. At smaller chunk sizes (64-256 tokens), our approach shows dramatic improvements (+10.97\% to +16.52\% average Recall@K), validating that semantic clustering can mitigate the fragmentation issues of small chunks. As chunk size increases to 512-1024 tokens, MERCED RAG maintains competitive advantages (+20.67\% to +19.31\% average), providing semantic coherence regardless of context window size.
+
+\begin{table*}[!ht]
+\caption{Generation metrics comparison: ROUGE-L, BLEU-1, and BLEU-4 scores between Hierarchical Segmentation (Segment + Cluster) and MERCED RAG across different chunk sizes.}
+\centering
+\begin{tabular}{cccccc}
+\toprule
+\textbf{Chunk size} & \textbf{Top-k Chunks} & \textbf{Methods} & \textbf{ROUGE-L} & \textbf{BLEU-1} & \textbf{BLEU-4} \\
+\midrule
+512 & 8 & \multirow{3}{*}{Hierarchical Segmentation (Nguyen et al. ~\cite{nguyen2025enhancing})} & 24.67 & 18.97 & 6.83 \\
+1024 & 4 & & \textbf{26.54} & \textbf{20.03} & \textbf{7.58} \\
+2048 & 2 & & 26.39 & 19.62 & 7.38 \\
+\midrule
+512 & 8 & \multirow{3}{*}{MERCED RAG (Ours)} & 23.54 & 18.06 & 5.4 \\
+1024 & 4 & & \textbf{33.3} & \textbf{23.31} & \textbf{8.92} \\
+2048 & 2 & & 32.45 & 22.65 & 8.82 \\
+\midrule
+512 & 8 & \multirow{3}{*}{Performance Comparison (vs. Segment + Cluster)} & -1.13\% & -0.91\% & -1.43\% \\
+1024 & 4 & & \textbf{+6.76\%} & \textbf{+3.28\%} & \textbf{+1.34\%} \\
+2048 & 2 & & +6.06\% & +3.03\% & +1.44\% \\
+\bottomrule
+\end{tabular}
+\label{tab:segment_cluster_comparison_corrected}
+\end{table*}
+
+\vspace{0.5em}
+Nguyen et al.~\cite{nguyen2025enhancing} introduced a hierarchical text segmentation and clustering method to improve RAG process, achieving strong results on datasets such as NarrativeQA, QUALITY, and QASPER. Building on this foundation, our MERCED RAG framework addresses several key challenges that remain open. While their approach relies on a single graph-based clustering technique with basic outlier handling through neighbor merging, our framework incorporates both \textbf{HDBSCAN} and \textbf{Agglomerative} clustering algorithms, allowing for better adaptability across diverse document types. Additionally, we propose three advanced outlier handling strategies—Nearest Assignment, Distinct Clustering, and Single Clustering—that enhance content preservation during segmentation. Most notably, our method tackles the complex issue of cross-embedding dimensional transformation between models, a critical aspect not covered in their hierarchical design.
+
+\vspace{0.5em}
+These technical advantages translate into measurable performance improvements, as demonstrated in Table~\ref{tab:segment_cluster_comparison_corrected}. At 1024 tokens, MERCED RAG achieves \textbf{+6.76\%} improvement in ROUGE-L, \textbf{+3.28\%} in BLEU-1, and \textbf{+1.34\%} in BLEU-4 compared to the hierarchical segmentation method of ~\cite{nguyen2025enhancing}. The performance gap increases at 2048 tokens, with \textbf{+6.06\%}, \textbf{+3.03\%}, and \textbf{+1.44\%} improvements, respectively. There may be additional influences of other techniques that affect RAG's ability to generate answers such as PROMT, LLM that we use, but the results have partly demonstrated that our semantic segmentation and embedding transformation techniques are particularly effective in maintaining contextual relevance and semantic consistency when processing longer text passages, confirming the superiority of our method in situations that require broader contextual understanding for long, complex documents such as NarrativeQA.
+
+\section{Conclusion and Future Work}
+
+Our MERCED RAG framework successfully addresses the fundamental limitations of existing RAG systems through multi-layer semantic chunking and comprehensive embedding dimension transformation techniques. The experimental results demonstrate significant improvements: \textbf{Faithfulness} increases from 0.963 to \textbf{0.989} (+2.7\%), \textbf{Answer Relevancy} improves from 0.969 to \textbf{1.000} (+3.2\%), and \textbf{NDCG} enhances from 0.846 to \textbf{0.898} (+6.1\%) on VUTR and from 0.832 to \textbf{0.867} (+4.2\%) on NarrativeQA. These gains establish new benchmarks for RAG systems and validate our integrated approach to semantic chunking and cross-model interoperability.
+
+\vspace{0.5em}
+Despite the promising results, our framework has several limitations that need addressing. The clustering-based chunking approach increases computational complexity from O(n) to O(n²), which may impact real-time applications. Additionally, the embedding dimension transformation techniques introduce computational overhead during query processing, requiring optimization for production deployments.
+
+\vspace{0.5em}
+Future work will focus on three main areas: developing more efficient clustering algorithms to reduce computational overhead, extending the framework to support multiple languages and domains, and exploring neural approaches for embedding transformation to improve semantic preservation. We also plan to integrate with advanced RAG techniques such as contextual retrieval and multi-stage retrieval pipelines to further enhance system performance and user experience.
+%------------------------------------------------------------------------
+
+{\small
+\bibliographystyle{ieee}
+\bibliography{egbib}
+}
+
+\end{document}
